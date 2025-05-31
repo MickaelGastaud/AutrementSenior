@@ -1,3 +1,6 @@
+import NosMissions from './components/sections/NosMissions';
+import Equipe from './components/sections/Equipe';
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -23,6 +26,12 @@ export default function Home() {
           </button>
         </div>
       </section>
+
+      {/* Section Nos Missions */}
+      <NosMissions />
+
+      {/* Section Équipe */}
+      <Equipe />
 
       {/* Section test des couleurs et animations */}
       <section className="container mx-auto px-4 py-16">
@@ -92,16 +101,22 @@ export default function Home() {
               <span className="text-green-500">✓</span> Header responsive avec navigation
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Footer avec informations légales
+              <span className="text-green-500">✓</span> Footer avec informations légales
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Section "Nos Missions"
+              <span className="text-green-500">✓</span> Section "Nos Missions"
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Pages du site
+              <span className="text-green-500">✓</span> Section Équipe (carrousel)
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Intégration CMS
+              <span className="text-yellow-500">○</span> Témoignages clients
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-yellow-500">○</span> Pages intérieures
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-yellow-500">○</span> Formulaire de contact
             </li>
           </ul>
         </div>
