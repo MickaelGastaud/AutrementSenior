@@ -190,22 +190,22 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
-                author: "Marie L.",
+                author: "Christine RUTKOWSKI.",
                 rating: 5,
                 date: "Il y a 2 mois",
-                text: "Un service exceptionnel ! L'équipe d'Autrement Senior a transformé le quotidien de ma mère. Leur approche bienveillante et professionnelle nous a apporté une vraie tranquillité d'esprit."
+                text: "Je suis en Normandie, ma maman sur Montpellier, nous avons connu la société «Autrement Senior» pour accompagner notre mère et pour nos enfants leur grand mère. Nous sommes tellement satisfaits par cette structure et tous les intervenants"
               },
               {
-                author: "Jean-Pierre M.",
+                author: "christiane.",
                 rating: 5,
                 date: "Il y a 3 mois",
-                text: "Je recommande vivement Autrement Senior. La coordinatrice est très à l'écoute et a su mettre en place rapidement une solution adaptée pour mon père."
+                text: "Une société qui réunit les compétences médicales, psychologiques et administratives avec bienveillance envers les personnes âgées et leur famille.Je remercie tout particulièrement Caroline qui est très à l'écoute et se charge de trouver une solution à chaque situation aussi difficile soit-elle."
               },
               {
-                author: "Sophie D.",
+                author: "Frédérique Emery.",
                 rating: 5,
-                date: "Il y a 1 mois",
-                text: "Professionnalisme et humanité sont les maîtres mots de cette équipe. Merci pour votre accompagnement précieux dans cette période difficile."
+                date: "Il y a 9 mois",
+                text: "Le support de Caroline, Autrement Senior, a été précieux pour nous aider à avancer dans une période difficile. Caroline a été très à l'écoute, attentive, et rassurante. Elle a su trouver les bonnes solutions aux problèmes quotidiens que nous rencontrions. "
               }
             ].map((avis, index) => (
               <motion.div
