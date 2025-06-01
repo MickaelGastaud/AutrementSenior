@@ -1,292 +1,206 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useState } from 'react';
-import MethodePEPS from '../components/sections/MethodePEPS';
 
-export default function NotreSolution() {
-  const [showVideo, setShowVideo] = useState(false);
+export default function MethodePEPS() {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
 
-  const services = [
+  const steps = [
     {
-      icon: '🩺',
-      title: 'Évaluation gériatrique',
-      description: 'Par une Infirmière (Dépistage des Fragilités)',
-      included: true
+      number: 1,
+      title: "1ère rencontre",
+      color: "from-orange-500 to-orange-400",
+      borderColor: "border-orange-500",
+      items: [
+        "Identification des besoins",
+        "Signature du contrat"
+      ]
     },
     {
-      icon: '🎯',
-      title: 'Solution personnalisée',
-      description: 'Mise en place d\'une solution adaptée à chaque situation',
-      included: true
+      number: 2,
+      title: "2ème rencontre",
+      subtitle: "Bilan gériatrique",
+      color: "from-orange-400 to-orange-300",
+      borderColor: "border-orange-400",
+      items: []
     },
     {
-      icon: '🔍',
-      title: 'Recherche des professionnels',
-      description: 'Professionnels de santé et services (auxiliaires de vie)',
-      included: true
+      number: 3,
+      title: "Mise en place des actions",
+      color: "from-orange-300 to-orange-200",
+      borderColor: "border-orange-300",
+      items: [
+        "Par priorités",
+        "Selon Planification"
+      ]
     },
     {
-      icon: '🤝',
-      title: 'Coordination complète',
-      description: 'Coordination des professionnels de santé et des services',
-      included: true
-    },
-    {
-      icon: '📋',
-      title: 'Gestion administrative',
-      description: 'APA, PCH, contrats de gré à gré - Efficacité garantie',
-      included: true
-    },
-    {
-      icon: '📊',
-      title: 'Suivi hebdomadaire',
-      description: 'Rapport de suivi pour les aidants familiaux',
-      included: true
-    },
-    {
-      icon: '📅',
-      title: 'Planning partagé',
-      description: 'Entre tous les interlocuteurs',
-      included: true
-    },
-    {
-      icon: '🎓',
-      title: 'Formation',
-      description: 'Des aidants et auxiliaires de vie',
-      included: true
+      number: 4,
+      title: "Pérennisation",
+      color: "from-green-400 to-green-300",
+      borderColor: "border-green-400",
+      items: [
+        "Tracas du quotidien",
+        "RDV",
+        "Auxiliaires",
+        "Soignants"
+      ]
     }
   ];
 
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 to-secondary/5 py-20">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeIn} className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              La méthode <span className="text-primary">PEPS</span>
-            </h1>
-            <p className="text-2xl text-gray-700 mb-4">
-              Libérez-vous et restez serein !
-            </p>
-            <p className="text-lg text-gray-600">
-              Un accompagnement complet et personnalisé pour vos proches âgés
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Tarification */}
-      <section className="py-16 -mt-8">
-        <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-4">
+        {/* Titre stylisé PEPS */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="relative inline-block">
+            <motion.h2 
+              className="text-7xl md:text-8xl font-black mb-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+            >
+              <span className="bg-gradient-to-r from-primary via-orange-400 to-secondary bg-clip-text text-transparent">
+                P.E.P.S
+              </span>
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"
+            />
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+              className="text-xl md:text-2xl text-gray-700 font-medium mt-4"
+            >
+              La méthode
+            </motion.p>
+          </div>
+          
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            transition={{ delay: 0.9 }}
+            className="flex flex-wrap justify-center gap-2 md:gap-4 mt-8 text-lg md:text-xl"
           >
-            {/* Tarif Individuel */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow relative">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Plus populaire
-                </span>
-              </div>
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Individuel</h3>
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-5xl font-bold text-primary">300€</span>
-                  <span className="text-gray-600">/mois</span>
-                </div>
-                <p className="text-sm text-gray-500 mt-2">Reste à charge après aides</p>
-              </div>
-              <Link
-                href="/contact"
-                className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary-dark transition-colors font-medium"
-              >
-                Choisir cette formule
-              </Link>
-            </div>
-
-            {/* Tarif Couple */}
-            <div className="bg-gradient-to-br from-secondary/10 to-accent/10 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow border-2 border-secondary">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Couple</h3>
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-5xl font-bold text-secondary">450€</span>
-                  <span className="text-gray-600">/mois</span>
-                </div>
-                <p className="text-sm text-gray-500 mt-2">Reste à charge après aides</p>
-              </div>
-              <Link
-                href="/contact"
-                className="block w-full bg-secondary text-white text-center py-3 rounded-lg hover:bg-secondary-dark transition-colors font-medium"
-              >
-                Choisir cette formule
-              </Link>
-            </div>
+            <span className="font-bold text-primary">Problème</span>
+            <span className="text-gray-300 mx-2">|</span>
+            <span className="font-bold text-orange-500">Écoute</span>
+            <span className="text-gray-300 mx-2">|</span>
+            <span className="font-bold text-orange-400">Planification</span>
+            <span className="text-gray-300 mx-2">|</span>
+            <span className="font-bold text-secondary">Suivi</span>
           </motion.div>
+        </motion.div>
 
-          {/* Certification */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-8"
-          >
-            <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-4 py-2 rounded-full border border-gray-200">
-              <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="font-medium">Organisme habilité pour l'avance immédiate</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Méthode PEPS */}
-      <MethodePEPS />
-
-      {/* Services Inclus */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Services inclus dans votre accompagnement
-            </h2>
-            <p className="text-xl text-gray-700">
-              Une prise en charge complète pour votre tranquillité d'esprit
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {services.map((service, index) => (
+        {/* Schéma des étapes */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Ligne de connexion */}
+          <div className="absolute top-[6.5rem] left-0 right-0 h-0.5 bg-gray-300 hidden md:block" />
+          
+          {/* Étapes */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {steps.map((step, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+                key={step.number}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all group"
+                transition={{ delay: index * 0.2 }}
+                className="relative"
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
-                  {service.icon}
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-600">{service.description}</p>
-                {service.included && (
-                  <div className="mt-4 flex items-center gap-1 text-green-600">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-xs font-medium">Inclus</span>
+                {/* Cercle principal */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setActiveStep(activeStep === step.number ? null : step.number)}
+                  className={`
+                    relative w-52 h-52 mx-auto rounded-full border-4 ${step.borderColor}
+                    bg-white cursor-pointer shadow-lg hover:shadow-xl transition-all
+                    ${activeStep === step.number ? 'ring-4 ring-offset-4 ring-' + step.borderColor.split('-')[1] + '-200' : ''}
+                  `}
+                >
+                  {/* Numéro */}
+                  <div className={`
+                    absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full
+                    bg-gradient-to-r ${step.color} text-white font-bold text-2xl
+                    flex items-center justify-center shadow-lg
+                  `}>
+                    {step.number}
                   </div>
-                )}
+                  
+                  {/* Contenu du cercle */}
+                  <div className="flex flex-col items-center justify-center h-full p-5 text-center">
+                    <h3 className="font-bold text-gray-900 mb-1 text-base">{step.title}</h3>
+                    {step.subtitle && (
+                      <p className="text-gray-700 font-medium text-sm">{step.subtitle}</p>
+                    )}
+                    {step.items.length > 0 && (
+                      <div className="text-xs text-gray-600 mt-2 space-y-1">
+                        {step.items.map((item, i) => (
+                          <div key={i} className="text-center">{item}</div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+
+                {/* Point sur la ligne */}
+                <div className={`
+                  absolute top-[6.5rem] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full
+                  bg-gradient-to-r ${step.color} hidden md:block
+                `} />
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Vidéo Scénario */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Comment fonctionne la méthode PEPS ?
-            </h2>
-            <p className="text-xl text-gray-700">
-              Découvrez un exemple concret avec l'histoire de Mauricette
-            </p>
-          </motion.div>
-
-          {/* Zone vidéo */}
-          <div className="max-w-4xl mx-auto">
-            <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl aspect-video">
-              {showVideo ? (
-                <div className="absolute inset-0">
-                  {/* Placeholder pour la vidéo - à remplacer par l'URL réelle */}
-                  <div className="w-full h-full flex items-center justify-center bg-gray-800">
-                    <p className="text-white">Vidéo scénario à intégrer</p>
-                  </div>
-                  <button
-                    onClick={() => setShowVideo(false)}
-                    className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setShowVideo(true)}
-                    className="bg-white/20 backdrop-blur-sm w-24 h-24 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
-                  >
-                    <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
-                  </motion.button>
-                  <div className="absolute bottom-8 left-8 text-white">
-                    <h3 className="text-2xl font-bold mb-2">Étude de cas : Mauricette</h3>
-                    <p className="text-white/80">Voir comment nous l'avons accompagnée</p>
-                  </div>
-                </div>
-              )}
-            </div>
+          {/* Illustrations */}
+          <div className="flex justify-between items-end mt-8 px-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-6xl"
+            >
+              👨‍⚕️
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-6xl"
+            >
+              🤝
+            </motion.div>
           </div>
         </div>
-      </section>
 
-      {/* Sans engagement */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
-            <h2 className="text-3xl font-bold mb-4">
-              Sans limitation d'intervention
-            </h2>
-            <p className="text-xl mb-8 text-white/90">
-              Nous gérons tous les tracas quotidiens pour que vous puissiez vous concentrer sur l'essentiel : 
-              passer du temps de qualité avec votre proche.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-all text-lg font-medium"
-            >
-              Commencer l'accompagnement
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </main>
+        {/* Description détaillée */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mt-16 text-center"
+        >
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Notre méthode PEPS garantit un accompagnement structuré et personnalisé. 
+            De l'identification des besoins à la pérennisation des solutions, 
+            nous sommes à vos côtés à chaque étape pour assurer le bien-être de votre proche.
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 }
