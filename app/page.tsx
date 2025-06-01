@@ -1,29 +1,151 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 import NosMissions from './components/sections/NosMissions';
 import Equipe from './components/sections/Equipe';
 
 export default function Home() {
+  const [displayedText1, setDisplayedText1] = useState('');
+  const [displayedText2, setDisplayedText2] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  
+  const text1 = "Le Care Management pour";
+  const text2 = "vos proches âgés";
+  
+  useEffect(() => {
+    let index1 = 0;
+    let index2 = 0;
+    
+    // Première ligne
+    const interval1 = setInterval(() => {
+      if (index1 <= text1.length) {
+        setDisplayedText1(text1.slice(0, index1));
+        index1++;
+      } else {
+        clearInterval(interval1);
+        
+        // Deuxième ligne après la première
+        const interval2 = setInterval(() => {
+          if (index2 <= text2.length) {
+            setDisplayedText2(text2.slice(0, index2));
+            index2++;
+          } else {
+            clearInterval(interval2);
+          }
+        }, 50);
+      }
+    }, 50);
+
+    // Clignotement du curseur
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(cursorInterval);
+    };
+  }, []);
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 animate-slide-up">
-          Le <span className="text-primary">Care Management</span> pour
-          <br />
-          <span className="text-secondary">vos proches âgés</span>
-        </h1>
-        
-        <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto animate-slide-up" style={{animationDelay: '0.1s'}}>
-          Un accompagnement personnalisé et bienveillant pour maintenir l'autonomie 
-          et le bien-être de vos aînés à domicile.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-up" style={{animationDelay: '0.2s'}}>
-          <button className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary-dark transition-all hover:scale-105 text-lg font-medium">
-            Découvrir notre solution
-          </button>
-          <button className="bg-accent text-gray-800 px-8 py-3 rounded-lg hover:bg-accent-dark transition-all hover:scale-105 text-lg font-medium">
-            Nous contacter
-          </button>
+    <main className="min-h-screen">
+      {/* Hero Section avec image de fond */}
+      <section className="relative min-h-screen flex items-center">
+        {/* Image de fond */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1559234938-b60fff04894d?q=80&w=2070')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          {/* Overlay gradient pour lisibilité du texte */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+        </div>
+
+        {/* Contenu */}
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="max-w-3xl">
+            <motion.h1 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-5xl md:text-7xl font-bold mb-6 min-h-[150px] md:min-h-[100px]"
+            >
+              <span className="inline-block">
+                {displayedText1.split(' ').map((word, i) => {
+                  if (word === 'Care' || word === 'Management') {
+                    return <span key={i} className="text-primary">{word} </span>;
+                  }
+                  return <span key={i} className="text-white">{word} </span>;
+                })}
+              </span>
+              <br />
+              <span className="text-secondary">{displayedText2}</span>
+              {showCursor && <span className="inline-block w-1 h-12 bg-primary ml-2"></span>}
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3 }}
+              className="text-xl text-gray-200 mb-8 max-w-2xl"
+            >
+              Un accompagnement personnalisé et bienveillant pour maintenir l'autonomie 
+              et le bien-être de vos aînés à domicile.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3.5 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Link
+                href="/solution"
+                className="bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary-dark transition-all hover:scale-105 text-lg font-medium text-center inline-block"
+              >
+                Découvrir notre solution
+              </Link>
+              <Link
+                href="/contact"
+                className="bg-accent text-gray-800 px-8 py-4 rounded-lg hover:bg-accent-dark transition-all hover:scale-105 text-lg font-medium text-center inline-block"
+              >
+                Nous contacter
+              </Link>
+            </motion.div>
+
+            {/* Badge gratuit */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 4 }}
+              className="mt-8"
+            >
+              <span className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">
+                Gratuit et sans engagement
+              </span>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Éléments décoratifs (étoiles) */}
+        <div className="absolute bottom-10 right-10 hidden lg:block">
+          <motion.div
+            animate={{ 
+              rotate: 360,
+              scale: [1, 1.2, 1],
+            }}
+            transition={{ 
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="text-white/20 text-6xl"
+          >
+            ⭐
+          </motion.div>
         </div>
       </section>
 
@@ -33,92 +155,56 @@ export default function Home() {
       {/* Section Équipe */}
       <Equipe />
 
-      {/* Section test des couleurs et animations */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-          Notre palette de couleurs
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {/* Carte Primaire */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1 group">
-            <div className="w-full h-32 bg-primary rounded-lg mb-4 animate-float"></div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Bienveillance</h3>
-            <p className="text-gray-600">Notre couleur principale représente la chaleur humaine et l'engagement.</p>
-            <div className="mt-4 flex gap-2">
-              <div className="w-8 h-8 bg-primary-light rounded"></div>
-              <div className="w-8 h-8 bg-primary rounded"></div>
-              <div className="w-8 h-8 bg-primary-dark rounded"></div>
-            </div>
-          </div>
-
-          {/* Carte Secondaire */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1 group">
-            <div className="w-full h-32 bg-secondary rounded-lg mb-4 animate-float" style={{animationDelay: '2s'}}></div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Sérénité</h3>
-            <p className="text-gray-600">Le turquoise évoque le calme et la confiance dans notre accompagnement.</p>
-            <div className="mt-4 flex gap-2">
-              <div className="w-8 h-8 bg-secondary-light rounded"></div>
-              <div className="w-8 h-8 bg-secondary rounded"></div>
-              <div className="w-8 h-8 bg-secondary-dark rounded"></div>
-            </div>
-          </div>
-
-          {/* Carte Accent */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1 group">
-            <div className="w-full h-32 bg-accent rounded-lg mb-4 animate-float" style={{animationDelay: '4s'}}></div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Vitalité</h3>
-            <p className="text-gray-600">Le vert menthe symbolise le renouveau et l'énergie positive.</p>
-            <div className="mt-4 flex gap-2">
-              <div className="w-8 h-8 bg-accent-light rounded"></div>
-              <div className="w-8 h-8 bg-accent rounded"></div>
-              <div className="w-8 h-8 bg-accent-dark rounded"></div>
-            </div>
+      {/* Section Témoignages (placeholder) */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Ils nous font confiance
+            </h2>
+            <p className="text-xl text-gray-700">
+              Découvrez les témoignages de nos clients
+            </p>
+          </motion.div>
+          
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-gray-500 italic">
+              Section témoignages à venir...
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Section État du projet */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <div className="bg-white rounded-3xl shadow-lg p-8 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            🚧 Site en construction
-          </h2>
-          <p className="text-gray-600 mb-6">
-            La structure de base est en place ! Prochaines étapes :
-          </p>
-          <ul className="text-left text-gray-700 space-y-2 max-w-md mx-auto">
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Configuration Next.js & Tailwind
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Palette de couleurs intégrée
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Animations de base
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Header responsive avec navigation
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Footer avec informations légales
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Section "Nos Missions"
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-500">✓</span> Section Équipe (carrousel)
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Témoignages clients
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Pages intérieures
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-yellow-500">○</span> Formulaire de contact
-            </li>
-          </ul>
+      {/* CTA Final */}
+      <section className="py-16 bg-primary text-white">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl font-bold mb-4">
+              Prêt à améliorer le quotidien de votre proche ?
+            </h2>
+            <p className="text-xl mb-8 text-white/90">
+              Contactez-nous dès aujourd'hui pour une évaluation gratuite et sans engagement
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-all text-lg font-medium"
+            >
+              Commencer maintenant
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </section>
     </main>
