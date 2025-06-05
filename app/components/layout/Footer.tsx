@@ -151,7 +151,7 @@ export default function Footer() {
                 Nos engagements
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/cgv" className="text-gray-400 hover:text-accent transition-colors">
+              <Link href="legal/cgv" className="text-gray-400 hover:text-accent transition-colors">
                 CGV
               </Link>
               <span className="text-gray-600">|</span>
