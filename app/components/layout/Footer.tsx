@@ -147,19 +147,19 @@ export default function Footer() {
             </p>
             
             <nav className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/engagements" className="text-gray-400 hover:text-accent transition-colors">
+              <Link href="/legal/engagements" className="text-gray-400 hover:text-accent transition-colors">
                 Nos engagements
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="legal/cgv" className="text-gray-400 hover:text-accent transition-colors">
+              <Link href="/legal/cgv" className="text-gray-400 hover:text-accent transition-colors">
                 CGV
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/confidentialite" className="text-gray-400 hover:text-accent transition-colors">
+              <Link href="/legal/confidentialite" className="text-gray-400 hover:text-accent transition-colors">
                 Politique de confidentialité
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/mentions-legales" className="text-gray-400 hover:text-accent transition-colors">
+              <Link href="/legal/mentions-legales" className="text-gray-400 hover:text-accent transition-colors">
                 Mentions légales
               </Link>
             </nav>
