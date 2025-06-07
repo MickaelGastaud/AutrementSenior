@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Equipe() {
   const [selectedMember, setSelectedMember] = useState(0);
@@ -21,7 +22,8 @@ export default function Equipe() {
       ],
       initiales: "CG",
       videoUrl: "https://www.youtube.com/embed/U3moi5VrEu0",
-      hasVideo: true
+      hasVideo: true,
+      photo: "/images/caroline-gastaud.jpg"
     },
     {
       id: 2,
@@ -35,7 +37,8 @@ export default function Equipe() {
         { icon: "🚀", text: "Innovation sociale", color: "primary" }
       ],
       initiales: "MG",
-      hasVideo: false
+      hasVideo: false,
+      photo: null // Pas de photo disponible
     },
     {
       id: 3,
@@ -49,7 +52,8 @@ export default function Equipe() {
         { icon: "⭐", text: "Excellence du service", color: "primary" }
       ],
       initiales: "AB",
-      hasVideo: false
+      hasVideo: false,
+      photo: "/images/anissa-benbekhta.jpg"
     },
     {
       id: 4,
@@ -63,7 +67,8 @@ export default function Equipe() {
         { icon: "🤝", text: "Liaison santé", color: "primary" }
       ],
       initiales: "FB",
-      hasVideo: false
+      hasVideo: false,
+      photo: "/images/francoise-barre.jpg"
     },
     {
       id: 5,
@@ -77,7 +82,8 @@ export default function Equipe() {
         { icon: "📋", text: "Évaluation gériatrique", color: "primary" }
       ],
       initiales: "CV",
-      hasVideo: false
+      hasVideo: false,
+      photo: "/images/claire-vinhais.jpg"
     }
   ];
 
@@ -191,9 +197,23 @@ export default function Equipe() {
                           <p className="text-white/80">Découvrez notre vision</p>
                         </>
                       ) : (
-                        <div className="w-32 h-32 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-5xl font-bold mx-auto">
-                          {currentMember.initiales}
-                        </div>
+                        <>
+                          {currentMember.photo ? (
+                            <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
+                              <Image
+                                src={currentMember.photo}
+                                alt={currentMember.nom}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 192px, 192px"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-48 h-48 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-5xl font-bold mx-auto">
+                              {currentMember.initiales}
+                            </div>
+                          )}
+                        </>
                       )}
                     </div>
                   )}
@@ -268,12 +288,24 @@ export default function Equipe() {
                     transition={{ delay: 0.6 }}
                     className="flex items-center gap-4 mt-8 pt-8 border-t border-gray-200"
                   >
-                    <div className={`
-                      w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg
-                      ${selectedMember === 0 ? 'bg-secondary' : 'bg-primary'}
-                    `}>
-                      {currentMember.initiales}
-                    </div>
+                    {currentMember.photo ? (
+                      <div className="relative w-14 h-14 rounded-full overflow-hidden">
+                        <Image
+                          src={currentMember.photo}
+                          alt={currentMember.nom}
+                          fill
+                          className="object-cover"
+                          sizes="56px"
+                        />
+                      </div>
+                    ) : (
+                      <div className={`
+                        w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg
+                        ${selectedMember === 0 ? 'bg-secondary' : 'bg-primary'}
+                      `}>
+                        {currentMember.initiales}
+                      </div>
+                    )}
                     <div>
                       <p className="font-semibold text-gray-900">{currentMember.nom}</p>
                       <p className="text-sm text-gray-600">{currentMember.poste}</p>

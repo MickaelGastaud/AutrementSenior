@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
-import MethodePEPS from '../components/sections/MethodePEPS';
 
 export default function NotreSolution() {
   const [showVideo, setShowVideo] = useState(false);
@@ -232,9 +231,6 @@ export default function NotreSolution() {
           </div>
         </div>
       </section>
-
-      {/* Méthode PEPS */}
-      <MethodePEPS />
 
       {/* Vidéo Scénario */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">

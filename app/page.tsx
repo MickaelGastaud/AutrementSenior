@@ -56,7 +56,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('https://i.goopics.net/48g1e6.jpg')`,
+            backgroundImage: `url('/images/autrement-senior.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

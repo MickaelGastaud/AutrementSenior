@@ -47,8 +47,8 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-white">Nos Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/solution" className="text-gray-400 hover:text-accent transition-colors text-sm">
-                  La méthode PEPS
+                <Link href="/care-manager" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                  Le Care Manager, c'est quoi ?
                 </Link>
               </li>
               <li>
