@@ -7,7 +7,6 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Effet de scroll pour changer le style du header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -39,46 +38,25 @@ export default function Header() {
 
       {/* Header principal */}
       <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-sm'}`}>
-        <nav className="container mx-auto px-4 py-4">
+        <nav className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo + Texte */}
             <Link href="/" className="group">
-              <div className="flex items-center gap-2">
-                {/* Logo SVG animé */}
-                <div className="relative w-12 h-12">
-                  <svg viewBox="0 0 48 48" className="w-full h-full">
-                    {/* Lettre A */}
-                    <text 
-                      x="8" 
-                      y="32" 
-                      className="text-3xl font-bold fill-primary group-hover:fill-primary-dark transition-colors"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
-                      A
-                    </text>
-                    {/* Lettre S */}
-                    <text 
-                      x="24" 
-                      y="32" 
-                      className="text-3xl font-bold fill-secondary group-hover:fill-secondary-dark transition-colors"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
-                      S
-                    </text>
-                    {/* Étoiles décoratives */}
-                    <circle cx="40" cy="8" r="1.5" className="fill-gray-800 opacity-60" />
-                    <circle cx="44" cy="12" r="1" className="fill-gray-800 opacity-40" />
-                    <circle cx="42" cy="16" r="1" className="fill-gray-800 opacity-40" />
-                  </svg>
+              <div className="flex items-center gap-2 transition-all duration-300">
+                {/* Logo image */}
+                <div className={`w-10 h-auto transition-transform duration-300 transform hover:scale-105`}>
+                  <img
+                    src="/images/logo.png"
+                    alt="Logo Autrement Senior"
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
-                {/* Texte du logo */}
-                <div className="hidden sm:block">
-                  <span className="text-xl font-bold text-primary group-hover:text-primary-dark transition-colors">Autrement</span>
-                  <span className="text-xl font-bold text-secondary group-hover:text-secondary-dark transition-colors"> Senior</span>
-                </div>
+                {/* Texte à côté du logo */}
+                <span className="text-lg sm:text-xl font-bold text-primary group-hover:text-primary-dark transition-colors">Autrement</span>
+                <span className="text-lg sm:text-xl font-bold text-secondary group-hover:text-secondary-dark transition-colors">Senior</span>
               </div>
             </Link>
-            
+
             {/* Menu desktop */}
             <div className="hidden lg:flex items-center gap-8">
               {menuItems.map((item) => (
