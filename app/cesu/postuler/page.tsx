@@ -55,7 +55,7 @@ export default function PostulerCESU() {
       ...prev,
       disponibilites: {
         ...prev.disponibilites,
-        [name]: !prev.disponibilites[name]
+        [name]: !prev.disponibilites[name as keyof typeof prev.disponibilites]
       }
     }));
   };

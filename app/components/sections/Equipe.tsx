@@ -95,7 +95,7 @@ export default function Equipe() {
     if (selectedMember === 0 && equipe[0].hasVideo) {
       setShowVideo(true);
     }
-  }, [selectedMember]);
+  }, [selectedMember, equipe]);
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
