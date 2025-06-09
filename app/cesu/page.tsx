@@ -9,40 +9,36 @@ export default function CESU() {
 
   const faqs = [
     {
-      question: "Quels sont les types d'interventions à réaliser ?",
-      answer: "Nos auxiliaires de vie interviennent pour l'aide à la toilette, l'aide aux repas, l'entretien du domicile, les courses, la compagnie, les sorties, et bien plus selon les besoins spécifiques de chaque bénéficiaire."
+      question: "Comment se passe l’intégration chez Autrement Senior ?",
+      answer: "Dès le départ, tu rencontres Anissa pour un entretien individuel. Ensuite, on vérifie tes références, tu suis une courte formation sur nos valeurs et notre façon de travailler, puis tu es progressivement mis(e) en lien avec des bénéficiaires adaptés à ton profil."
     },
     {
-      question: "Est-il possible de faire un complément d'heures ?",
-      answer: "Oui, nos auxiliaires peuvent effectuer des heures complémentaires selon leurs disponibilités et les besoins des bénéficiaires, dans le respect de la législation du travail."
+      question: "Quelles sont les missions que je pourrais être amené(e) à faire ?",
+      answer: "Les interventions sont très variées : aide à la toilette, préparation des repas, ménage, courses, accompagnement aux rendez-vous, sorties ou simplement présence bienveillante. On s’adapte à chaque personne accompagnée."
     },
     {
-      question: "Comment sont affectés les bénéficiaires ?",
-      answer: "L'affectation se fait en fonction de la proximité géographique, des compétences spécifiques requises, et de la compatibilité entre l'auxiliaire et le bénéficiaire. Anissa coordonne personnellement chaque mise en relation."
+      question: "Quel type d’horaires dois-je prévoir ?",
+      answer: "C’est variable : de petites interventions de 2h, des demi-journées, des journées complètes voire des nuits. On construit le planning en fonction de tes disponibilités et des besoins des bénéficiaires."
     },
     {
-      question: "Je n'ai pas le permis, est-ce un frein ?",
-      answer: "Pas nécessairement. Nous privilégions les interventions proches de votre domicile et accessibles en transport en commun. Le permis est un plus mais n'est pas obligatoire pour de nombreuses missions."
+      question: "Et si je veux faire plus d’heures ?",
+      answer: "C’est possible ! On peut te proposer des heures complémentaires, toujours dans le cadre légal et selon ta disponibilité et les demandes des familles."
     },
     {
-      question: "Je suis étudiant.e, puis-je intégrer Ouihelp pour financer mes études ?",
-      answer: "Absolument ! Nous accueillons les étudiants motivés. Les horaires flexibles du CESU permettent de concilier études et travail. Un minimum de disponibilité est requis."
+      question: "Que signifie travailler sous contrat mandataire ?",
+      answer: "Tu es salarié(e) du particulier employeur, mais tu n’es jamais seul(e). Autrement Senior s’occupe de l’administratif, te met en relation et assure un suivi. Tu gagnes en autonomie tout en étant soutenu(e) à chaque étape."
     },
     {
-      question: "Contrat mandataire, qu'est-ce que ça change pour moi ?",
-      answer: "En contrat mandataire, vous êtes employé directement par le particulier. Autrement Senior gère toute la partie administrative, la mise en relation et le suivi. Vous bénéficiez d'une grande autonomie tout en étant accompagné."
+      question: "Et s’il y a une hospitalisation ou un décès ?",
+      answer: "On est là pour toi. Dans ces moments sensibles, on t'accompagne humainement et professionnellement. Selon la situation, un préavis s’applique, et on cherche à te proposer rapidement une nouvelle mission."
     },
     {
-      question: "Que se passe-t-il en cas d'hospitalisation ou de décès de mon bénéficiaire ?",
-      answer: "Nous vous accompagnons dans ces moments difficiles et nous nous efforçons de vous proposer rapidement une nouvelle mission. Un préavis légal s'applique selon les cas."
+      question: "Est-ce que je travaille le 1er mai ?",
+      answer: "Le 1er mai est un jour férié obligatoirement chômé et payé s’il tombe sur un jour habituellement travaillé. Pas d’intervention prévue ce jour-là, sauf situation exceptionnelle clairement validée en amont avec Anissa. Et dans ce cas, la rémunération est doublée."
     },
     {
-      question: "Quel est le parcours d'intégration ?",
-      answer: "Le parcours comprend : un entretien avec Anissa, une vérification des références, une formation sur nos valeurs et méthodes, puis une mise en relation progressive avec les bénéficiaires."
-    },
-    {
-      question: "À quoi dois-je m'attendre en termes d'horaires ?",
-      answer: "Les horaires varient selon les besoins : interventions ponctuelles de 2h, demi-journées, journées complètes ou présence de nuit. Nous adaptons les plannings selon vos disponibilités."
+      question: "Quel délai dois-je respecter pour poser des congés ?",
+      answer: "Pour des congés planifiés, il est demandé de prévenir au minimum un mois à l’avance, conformément à la convention collective. C’est ce délai qui permet une organisation fluide pour assurer la continuité auprès des bénéficiaires. En cas d’urgence, on reste bien sûr à l’écoute : on échange et on trouve ensemble une solution humaine et responsable."
     }
   ];
 
