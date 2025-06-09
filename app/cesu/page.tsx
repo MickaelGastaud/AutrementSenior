@@ -84,9 +84,14 @@ export default function CESU() {
             <div className="p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center">
               {/* Photo Anissa */}
               <div className="text-center md:text-left">
-                <div className="w-48 h-48 mx-auto md:mx-0 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full flex items-center justify-center text-6xl mb-4">
-                  👩‍⚕️
-                </div>
+              <div className="w-48 h-48 mx-auto md:mx-0 rounded-full overflow-hidden mb-4">
+  <img
+    src="/images/anissa-benbekhta.jpg"
+    alt="Anissa Benbekhta"
+    className="w-full h-full object-cover"
+  />
+</div>
+
                 <div className="space-y-2">
                   <a 
                     href="tel:0649604199" 
