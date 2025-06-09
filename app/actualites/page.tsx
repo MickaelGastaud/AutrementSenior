@@ -253,7 +253,7 @@ export default function Actualites() {
       {/* Reel 2 */}
       <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
         <iframe 
-          src="https://www.instagram.com/reel/DKkNck8COEA/embed" 
+          src="https://www.instagram.com/reel/DJbb75ECW4W/embed" 
           className="w-full h-full"
           frameBorder="0" 
           scrolling="no"
