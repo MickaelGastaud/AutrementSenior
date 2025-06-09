@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
@@ -89,6 +89,14 @@ export default function Equipe() {
 
   const currentMember = equipe[selectedMember];
 
+  // Lancer automatiquement la vidéo pour Caroline
+  useEffect(() => {
+    // Si c'est Caroline (index 0) et qu'elle a une vidéo, lancer automatiquement
+    if (selectedMember === 0 && equipe[0].hasVideo) {
+      setShowVideo(true);
+    }
+  }, [selectedMember]);
+
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
@@ -116,7 +124,10 @@ export default function Equipe() {
                 key={member.id}
                 onClick={() => {
                   setSelectedMember(index);
-                  setShowVideo(false);
+                  // Si ce n'est pas Caroline, masquer la vidéo
+                  if (index !== 0) {
+                    setShowVideo(false);
+                  }
                 }}
                 className={`
                   px-6 py-3 rounded-full font-medium transition-all
@@ -159,12 +170,12 @@ export default function Equipe() {
           >
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0">
-                {/* Vidéo ou placeholder visuel */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 flex items-center justify-center min-h-[400px] relative">
+                {/* Vidéo ou photo plein écran */}
+                <div className="relative min-h-[400px] md:min-h-[500px] overflow-hidden">
                   {currentMember.hasVideo && showVideo ? (
-                    <div className="absolute inset-4 rounded-xl overflow-hidden">
+                    <div className="absolute inset-0">
                       <iframe
-                        src={currentMember.videoUrl}
+                        src={`${currentMember.videoUrl}?autoplay=1&mute=1`}
                         title={`Présentation de ${currentMember.nom}`}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -180,42 +191,53 @@ export default function Equipe() {
                       </button>
                     </div>
                   ) : (
-                    <div className="text-center">
-                      {currentMember.hasVideo ? (
-                        <>
-                          <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => setShowVideo(true)}
-                            className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto hover:bg-white/30 transition-all"
-                          >
-                            <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                            </svg>
-                          </motion.button>
-                          <h3 className="text-white text-2xl font-bold mb-2">Vidéo de {currentMember.nom.split(' ')[0]}</h3>
-                          <p className="text-white/80">Découvrez notre vision</p>
-                        </>
+                    <>
+                      {/* Photo en arrière-plan plein écran */}
+                      {currentMember.photo ? (
+                        <div className="absolute inset-0">
+                          <Image
+                            src={currentMember.photo}
+                            alt={currentMember.nom}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            priority
+                          />
+                          {/* Overlay gradient pour améliorer la lisibilité */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-gray-900/20" />
+                        </div>
                       ) : (
-                        <>
-                          {currentMember.photo ? (
-                            <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
-                              <Image
-                                src={currentMember.photo}
-                                alt={currentMember.nom}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 192px, 192px"
-                              />
-                            </div>
-                          ) : (
-                            <div className="w-48 h-48 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-5xl font-bold mx-auto">
-                              {currentMember.initiales}
-                            </div>
-                          )}
-                        </>
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900" />
                       )}
-                    </div>
+                      
+                      {/* Contenu au-dessus de la photo */}
+                      <div className="relative z-10 flex items-center justify-center h-full min-h-[400px] md:min-h-[500px] p-8">
+                        {currentMember.hasVideo && selectedMember !== 0 ? (
+                          <div className="text-center">
+                            <motion.button
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => setShowVideo(true)}
+                              className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto hover:bg-white/30 transition-all"
+                            >
+                              <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                              </svg>
+                            </motion.button>
+                            <h3 className="text-white text-2xl font-bold mb-2">Vidéo de {currentMember.nom.split(' ')[0]}</h3>
+                            <p className="text-white/80">Découvrez notre vision</p>
+                          </div>
+                        ) : (
+                          <div className="text-center">
+                            {!currentMember.photo && (
+                              <div className="w-32 h-32 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-5xl font-bold mx-auto">
+                                {currentMember.initiales}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </>
                   )}
                 </div>
 
