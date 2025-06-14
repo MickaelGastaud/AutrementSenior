@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Actualites() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Articles pour le carrousel
   const articlesCarrousel = [
@@ -63,6 +64,17 @@ export default function Actualites() {
     }
   ];
 
+  // 🎯 ANIMATION AUTOMATIQUE DU CARROUSEL
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % articlesCarrousel.length);
+      }, 5000); // Change toutes les 5 secondes
+
+      return () => clearInterval(interval);
+    }
+  }, [currentSlide, isPaused, articlesCarrousel.length]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % articlesCarrousel.length);
   };
@@ -97,7 +109,11 @@ export default function Actualites() {
       {/* Carrousel */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+          <div 
+            className="relative overflow-hidden rounded-2xl shadow-2xl"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <div className="relative h-[500px]">
               {articlesCarrousel.map((article, index) => (
                 <motion.div
@@ -119,20 +135,44 @@ export default function Actualites() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                      <span className="inline-block px-3 py-1 bg-primary rounded-full text-sm mb-4">
+                      <motion.span 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="inline-block px-3 py-1 bg-primary rounded-full text-sm mb-4"
+                      >
                         {article.categorie}
-                      </span>
-                      <h2 className="text-3xl font-bold mb-3">{article.titre}</h2>
-                      <p className="text-lg mb-4 max-w-3xl">{article.extrait}</p>
-                      <div className="flex items-center justify-between">
+                      </motion.span>
+                      <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-3xl font-bold mb-3"
+                      >
+                        {article.titre}
+                      </motion.h2>
+                      <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="text-lg mb-4 max-w-3xl"
+                      >
+                        {article.extrait}
+                      </motion.p>
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        className="flex items-center justify-between"
+                      >
                         <span className="text-sm">{article.date}</span>
                         <Link 
-                          href={`/actualites/${article.id}`}
+                          href={`/actualites/la-methode-peps`}
                           className="bg-white text-gray-900 px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors"
                         >
                           Lire la suite
                         </Link>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>
@@ -168,6 +208,21 @@ export default function Actualites() {
                   }`}
                 />
               ))}
+            </div>
+
+            {/* 🎯 BARRE DE PROGRESSION */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-black/20">
+              <motion.div
+                className="h-full bg-primary"
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ 
+                  duration: 5, // Synchronisé avec le temps du carrousel
+                  ease: 'linear',
+                  repeat: Infinity
+                }}
+                key={currentSlide}
+              />
             </div>
           </div>
         </div>
@@ -225,70 +280,70 @@ export default function Actualites() {
         </div>
       </section>
 
-{/* Section Reels Instagram */}
-<section className="py-16">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">
-        Nos Reels Instagram
-      </h2>
-      <p className="text-lg text-gray-600">
-        Suivez-nous sur Instagram pour plus de contenus
-      </p>
-    </div>
+      {/* Section Reels Instagram */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Nos Reels Instagram
+            </h2>
+            <p className="text-lg text-gray-600">
+              Suivez-nous sur Instagram pour plus de contenus
+            </p>
+          </div>
 
-    {/* Grille de Reels */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Reel 1 */}
-      <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
-        <iframe 
-          src="https://www.instagram.com/reel/DKSK-2viGGg/embed" 
-          className="w-full h-full"
-          frameBorder="0" 
-          scrolling="no"
-          allowTransparency
-        />
-      </div>
-      
-      {/* Reel 2 */}
-      <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
-        <iframe 
-          src="https://www.instagram.com/reel/DJbb75ECW4W/embed" 
-          className="w-full h-full"
-          frameBorder="0" 
-          scrolling="no"
-          allowTransparency
-        />
-      </div>
-      
-      {/* Reel 3 */}
-      <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
-        <iframe 
-          src="https://www.instagram.com/reel/DJ_zoNSCGWE/embed" 
-          className="w-full h-full"
-          frameBorder="0" 
-          scrolling="no"
-          allowTransparency
-        />
-      </div>
-    </div>
+          {/* Grille de Reels */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Reel 1 */}
+            <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.instagram.com/reel/DKSK-2viGGg/embed" 
+                className="w-full h-full"
+                frameBorder="0" 
+                scrolling="no"
+                allowTransparency
+              />
+            </div>
+            
+            {/* Reel 2 */}
+            <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.instagram.com/reel/DJbb75ECW4W/embed" 
+                className="w-full h-full"
+                frameBorder="0" 
+                scrolling="no"
+                allowTransparency
+              />
+            </div>
+            
+            {/* Reel 3 */}
+            <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.instagram.com/reel/DJ_zoNSCGWE/embed" 
+                className="w-full h-full"
+                frameBorder="0" 
+                scrolling="no"
+                allowTransparency
+              />
+            </div>
+          </div>
 
-    {/* Bouton voir plus */}
-    <div className="text-center mt-8">
-      <a 
-        href="https://www.instagram.com/autrementsenior/reels/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-700 transition-colors"
-      >
-        Voir tous nos Reels
-        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg>
-      </a>
-    </div>
-  </div>
-</section>
+          {/* Bouton voir plus */}
+          <div className="text-center mt-8">
+            <a 
+              href="https://www.instagram.com/autrementsenior/reels/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-700 transition-colors"
+            >
+              Voir tous nos Reels
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

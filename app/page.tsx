@@ -9,7 +9,6 @@ import Equipe from './components/sections/Equipe';
 export default function Home() {
   const [displayedText1, setDisplayedText1] = useState('');
   const [displayedText2, setDisplayedText2] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
   
   const text1 = "Le Care Management pour";
   const text2 = "vos proches âgés";
@@ -38,14 +37,7 @@ export default function Home() {
       }
     }, 50);
 
-    // Clignotement du curseur
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-
-    return () => {
-      clearInterval(cursorInterval);
-    };
+    return () => {};
   }, []);
 
   return (
@@ -71,7 +63,7 @@ export default function Home() {
             <motion.h1 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-5xl md:text-7xl font-bold mb-6 min-h-[150px] md:min-h-[100px]"
+              className="text-5xl md:text-7xl font-bold mb-6"
             >
               <span className="inline-block">
                 {displayedText1.split(' ').map((word, i) => {
@@ -83,7 +75,6 @@ export default function Home() {
               </span>
               <br />
               <span className="text-secondary">{displayedText2}</span>
-              {showCursor && <span className="inline-block w-1 h-12 bg-primary ml-2"></span>}
             </motion.h1>
 
             <motion.p 
