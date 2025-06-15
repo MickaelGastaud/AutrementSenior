@@ -17,7 +17,7 @@ export default function Equipe() {
       description: "Chez Autrement Senior, nous croyons que chaque personne mérite de vieillir avec dignité et dans le confort de son domicile.",
       bio: "Forte de son expérience dans l'accompagnement des seniors, Caroline partage sa vision d'un service humain et personnalisé.",
       tags: [
-        { icon: "👥", text: "+10 ans d'expérience", color: "secondary" },
+        { icon: "👥", text: "+20 ans d'expérience", color: "secondary" },
         { icon: "🎓", text: "Expert en gérontologie", color: "primary" }
       ],
       initiales: "CG",
@@ -45,7 +45,7 @@ export default function Equipe() {
       nom: "Anissa Benbekta",
       poste: "Coordinatrice auxiliaire de vie",
       role: "Coordinatrice",
-      description: "Anissa coordonne avec bienveillance nos équipes d'auxiliaires de vie pour garantir un service de qualité.",
+      description: "Anissa coordonne avec bienveillance l'ensemble des intervenants – auxiliaires de vie en CESU ou prestataires – pour garantir un accompagnement sur mesure et de qualité.",
       bio: "Son approche humaine et son professionnalisme font d'Anissa un pilier essentiel de notre équipe.",
       tags: [
         { icon: "❤️", text: "Coordination bienveillante", color: "secondary" },
@@ -78,7 +78,7 @@ export default function Equipe() {
       description: "Claire apporte son expertise d'infirmière pour évaluer les besoins et coordonner les soins de nos bénéficiaires.",
       bio: "Son expérience en soins infirmiers garantit une évaluation précise des besoins de chaque senior.",
       tags: [
-        { icon: "💉", text: "Soins infirmiers", color: "secondary" },
+        { icon: "💉", text: "Consultation infirmière", color: "secondary" },
         { icon: "📋", text: "Évaluation gériatrique", color: "primary" }
       ],
       initiales: "CV",

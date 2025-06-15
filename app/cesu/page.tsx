@@ -94,7 +94,7 @@ export default function CESU() {
 
                 <div className="space-y-2">
                   <a 
-                    href="tel:0649604199" 
+                    href="tel:0617077955" 
                     className="inline-flex items-center gap-2 text-primary hover:text-primary-dark transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
