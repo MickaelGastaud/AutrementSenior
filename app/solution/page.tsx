@@ -2,19 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function NotreSolution() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Démarrer la vidéo automatiquement
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log("La lecture automatique a été bloquée:", error);
-      });
-    }
-  }, []);
+  const [showPlayButton, setShowPlayButton] = useState(true);
 
   const services = [
     {
@@ -119,25 +110,46 @@ export default function NotreSolution() {
             </p>
           </motion.div>
 
-          {/* Vidéo Mauricette */}
+          {/* Vidéo Mauricette YouTube */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-              <video
-                ref={videoRef}
-                className="w-full aspect-video"
-                controls
-                muted
-                playsInline
-                poster="/images/mauricette-poster.jpg"
-              >
-                <source src="public/videos/mauricette.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture de vidéos.
-              </video>
+            <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl aspect-video">
+              {showPlayButton ? (
+                <div className="relative w-full h-full">
+                  {/* Image de prévisualisation */}
+                  <img 
+                    src="https://img.youtube.com/vi/CPSxY2VDAEU/maxresdefault.jpg"
+                    alt="Aperçu vidéo Mauricette"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setShowPlayButton(false)}
+                      className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full flex items-center gap-3 text-lg font-medium shadow-2xl"
+                    >
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                      </svg>
+                      Découvrir l'histoire de Mauricette
+                    </motion.button>
+                  </div>
+                </div>
+              ) : (
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/CPSxY2VDAEU?autoplay=1&controls=1&rel=0&modestbranding=1"
+                  title="La méthode PEPS - Histoire de Mauricette"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
             </div>
           </motion.div>
         </div>
