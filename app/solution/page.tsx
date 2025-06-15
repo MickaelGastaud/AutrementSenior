@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 export default function NotreSolution() {
   const [showPlayButton, setShowPlayButton] = useState(true);
+  const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
 
   const services = [
     {
@@ -14,8 +15,18 @@ export default function NotreSolution() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
         </svg>
       ),
-      title: 'Bilan gériatrique',
-      description: 'Évaluation complète et présentation des solutions adaptées',
+      title: 'Évaluation gériatrique complète',
+      description: 'Réalisé par une infirmière spécialisée : dépistage des fragilités et mise en place d’une solution personnalisée.',
+      included: true
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      ),
+      title: 'Aide à la recherche d’auxiliaires de vie qualifiées',
+      description: 'Coordination de l’ensemble des auxiliaires de vie, en CESU ou en prestation, afin de garantir un accompagnement personnalisé et de qualité.',
       included: true
     },
     {
@@ -25,37 +36,17 @@ export default function NotreSolution() {
         </svg>
       ),
       title: 'Coordination médicale',
-      description: 'Liaison entre tous les professionnels de santé',
-      included: true
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      ),
-      title: 'Recherche d\'auxiliaires de vie',
-      description: 'Sélection de professionnels qualifiés et de confiance',
+      description: 'Mise en relation avec des professionnels de santé et pilotage de toutes les actions médicales autour du senior.',
       included: true
     },
     {
       icon: (
         <svg className="w-12 h-12 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
         </svg>
       ),
-      title: 'Organisation des transports',
-      description: 'Planification et coordination des déplacements',
-      included: true
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: 'Prise de rendez-vous médicaux',
-      description: 'Gestion complète du planning médical',
+      title: 'Prise de rendez vous médicaux',
+      description: 'Prise de rendez-vous médicaux auprès des professionnels de santé, en lien avec le planning et les besoins du senior.',
       included: true
     },
     {
@@ -64,18 +55,8 @@ export default function NotreSolution() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       ),
-      title: 'Aide à la gestion administrative',
-      description: 'APA, PCH, dossiers sociaux - Simplicité garantie',
-      included: true
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg>
-      ),
-      title: 'Conciergerie senior',
-      description: 'Services personnalisés selon les besoins',
+      title: 'Gestion administrative',
+      description: 'Nous assurons la mise en place de l’APA, de la PCH et des contrats de gré à gré, avec une prise en charge complète des démarches administratives et une optimisation des aides financières. Efficacité et tranquillité d’esprit garanties.',
       included: true
     },
     {
@@ -84,8 +65,28 @@ export default function NotreSolution() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       ),
-      title: 'Suivi hebdomadaire',
-      description: 'Rapports détaillés pour les familles',
+      title: 'Rapports de suivi',
+      description: 'Rapports hebdomadaires ou sur demande pour les aidants familiaux',
+      included: true
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: 'Planning partagé',
+      description: 'Visibilité complète des rendez-vous entre tous les interlocuteurs',
+      included: true
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
+      title: 'Conciergerie senior',
+      description: 'Prise en charge illimitée de tous les problèmes du quotidien, sans restriction',
       included: true
     }
   ];
@@ -106,7 +107,7 @@ export default function NotreSolution() {
               Comment fonctionne la méthode <span className="text-primary">PEPS</span> ?
             </h1>
             <p className="text-2xl text-gray-700">
-              Découvrez un exemple concret avec l'histoire de Mauricette
+              Découvrez un exemple concret avec l&apos;histoire de Mauricette
             </p>
           </motion.div>
 
@@ -136,7 +137,7 @@ export default function NotreSolution() {
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                       </svg>
-                      Découvrir l'histoire de Mauricette
+                      Découvrir l&apos;histoire de Mauricette
                     </motion.button>
                   </div>
                 </div>
@@ -167,9 +168,16 @@ export default function NotreSolution() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Services inclus dans votre accompagnement
             </h2>
-            <p className="text-xl text-gray-700">
-              Une prise en charge complète pour votre tranquillité d'esprit
+            <p className="text-xl text-gray-700 mb-8">
+              Une prise en charge complète pour votre tranquillité d&apos;esprit
             </p>
+            {/* Mise en avant de l'interlocuteur unique */}
+            <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-6 py-3 rounded-full font-medium">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              Un interlocuteur unique et dédié pour votre suivi
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -327,7 +335,7 @@ export default function NotreSolution() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Nos formules d'accompagnement
+              Nos formules d&apos;accompagnement
             </h2>
             <p className="text-xl text-gray-700">
               Des tarifs transparents adaptés à vos besoins
@@ -398,12 +406,121 @@ export default function NotreSolution() {
               <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="font-medium">Organisme habilité pour l'avance immédiate</span>
+              <span className="font-medium">Organisme habilité pour l&apos;avance immédiate</span>
             </div>
             <p className="text-gray-600 mt-4">
-              Bénéficiez immédiatement du crédit d'impôt sans attendre l'année suivante
+              Bénéficiez immédiatement du crédit d&apos;impôt sans attendre l&apos;année suivante
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ - Ce qu'Autrement Senior n'est PAS vs ce qu'il EST */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Questions fréquentes
+            </h2>
+            <p className="text-xl text-gray-700">
+              Comprendre ce qu&apos;Autrement Senior fait vraiment pour vous
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                question: "Autrement Senior intervient-il en cas d’urgence médicale ?",
+                example: "Exemple : Un senior chute.",
+                wrong: "Autrement Senior n’intervient pas dans la gestion directe des urgences médicales. ",
+                right: "Un protocole d’urgence est anticipé en amont avec la famille et les intervenants afin de garantir une réaction rapide et adaptée en cas de besoin."
+              },
+              {
+                question: "Autrement Senior est-il un prestataire d’auxiliaires de vie ?",
+                example: "Exemple : Un senior a besoin d'un accompagnement pour faire ses courses.",
+                wrong: "Autrement senior ne se contente pas d'apporter une aide aux besoins primaires.",
+                right: "Autrement Senior ne se limite pas à répondre à une demande ponctuelle. Nous évaluons l’ensemble des besoins du senior (médicaux, cognitifs, sociaux, pratiques) et construisons un plan d’action personnalisé, incluant la mise en relation avec les bons intervenants, dont des auxiliaires de vie si nécessaire."
+              },
+              {
+                question: "Autrement Senior est-il un service public ou apparenté ?",
+                example: "Exemple : Une famille aimerait savoir si notre solution est éligible à une aide financière.",
+                wrong: "Autrement Senior n’est pas une solution finançable par des aides de l’État.",
+                right: "Autrement Senior est un service privé, mais agréé. À ce titre, il permet aux familles de bénéficier du crédit d’impôt pour les services à la personne, ce qui en fait une solution partiellement finançable."
+              },
+              {
+                question: "Comment Autrement Senior agit-il face aux refus du senior ?",
+                example: "Exemple : Un senior refuse de se laver.",
+                wrong: "Autrement Senior ne contraint pas l’aîné.",
+                right: "Nous construisons un protocole individualisé et progressif, en collaboration avec l’entourage et les professionnels, pour répondre aux besoins tout en respectant les choix et le rythme du senior."
+              },
+              {
+                question: "Que fait Autrement Senior face à une perte d'autonomie soudaine ?",
+                example: "Exemple : Un senior perd son autonomie subitement suite à une grippe.",
+                wrong: "Autrement senior ne maintient pas le plan d'action initial.",
+                right: "Autrement Senior réagit rapidement en réévaluant la situation. Un audit est réalisé avec l’ensemble des partenaires de santé (médecin, infirmier, auxiliaires de vie…) afin d’adapter ou de reconstruire un nouveau plan d’action, au plus près des besoins actuels du senior."
+              },
+              {
+                question: "Autrement Senior complique-t-il la prise en charge ?",
+                example: "Exemple : Une famille se sent surchargée par la multiplicité et la complexité des démarches.",
+                wrong: "Autrement senior n'est pas un interlocuteur de plus dans la prise en charge des seniors.",
+                right: "Autrement Senior devient l’interlocuteur unique des familles. Nous centralisons les informations, coordonnons tous les intervenants et simplifions chaque démarche pour alléger la charge mentale et rendre la prise en charge plus fluide."
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                <button
+                  onClick={() => setActiveQuestion(activeQuestion === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <h3 className="text-lg font-bold text-gray-900">{item.question}</h3>
+                  <svg
+                    className={`w-6 h-6 text-primary transform transition-transform ${
+                      activeQuestion === index ? 'rotate-45' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </button>
+                
+                {activeQuestion === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="px-6 pb-6"
+                  >
+                    <p className="text-gray-600 mb-4 italic">{item.example}</p>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3 bg-red-50 p-4 rounded-lg">
+                        <span className="text-2xl">❌</span>
+                        <p className="text-gray-700">{item.wrong}</p>
+                      </div>
+                      
+                      <div className="flex items-start gap-3 bg-green-50 p-4 rounded-lg">
+                        <span className="text-2xl">✅</span>
+                        <p className="text-gray-700 font-medium">{item.right}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -426,7 +543,7 @@ export default function NotreSolution() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-all text-lg font-medium"
             >
-              Commencer l'accompagnement
+              Commencer l&apos;accompagnement
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
