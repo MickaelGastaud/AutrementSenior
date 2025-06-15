@@ -135,7 +135,7 @@ export default function NotreSolution() {
                 playsInline
                 poster="/images/mauricette-poster.jpg"
               >
-                <source src="public/videos/mauricettes.mp4" type="video/mp4" />
+                <source src="public/videos/mauricette.mp4" type="video/mp4" />
                 Votre navigateur ne supporte pas la lecture de vidéos.
               </video>
             </div>
