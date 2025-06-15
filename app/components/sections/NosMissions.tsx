@@ -7,33 +7,49 @@ export default function NosMissions() {
   const missions = [
     {
       id: 1,
-      title: "Le soutenir au quotidien",
-      description: "Nous l'aidons à effectuer tous les gestes du quotidien qui sont essentiels pour son bien-être : toilette, prise des repas, présence de nuit...",
-      icon: "🤝",
+      title: "Simplifier votre action au maximum",
+      description: "Vous nous mandatez, et nous prenons le relais : recherche de solutions, mise en place concrète, coordination. Vous gagnez du temps, de la clarté et de la sérénité.",
+      icon: (
+        <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
       color: "primary",
       animation: "deambulateur" // Pour Lottie future
     },
     {
       id: 2,
-      title: "Lui tenir compagnie",
-      description: "Nous assurons une compagnie pour que ses journées soient des plus agréables : sorties, promenades, jeux de stimulation...",
-      icon: "💬",
+      title: "Permettre à votre proche de réaliser son souhait le plus profond : vieillir chez lui",
+      description: "Nous mettons tout en œuvre pour rendre ce projet de vie possible, dans des conditions dignes, sûres et respectueuses.",
+      icon: (
+        <svg className="w-12 h-12 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      ),
       color: "secondary",
       animation: "conversation" // Pour Lottie future
     },
     {
       id: 3,
-      title: "Lui donner un coup de main",
-      description: "Même pour les petites tâches du quotidien, comme les courses ou le ménage, nous pouvons l'aider à raison de 4 heures par semaine minimum.",
-      icon: "🏠",
+      title: "Constituer un réseau de professionnels de confiance autour de lui",
+      description: "Nous sélectionnons les bons intervenants de proximité et construisons une alliance thérapeutique cohérente et sécurisante.",
+      icon: (
+        <svg className="w-12 h-12 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
       color: "accent",
       animation: "menage" // Pour Lottie future
     },
     {
       id: 4,
-      title: "L'aider spécifiquement",
-      description: "Parkinson, Alzheimer, handicap... Certaines pathologies demandent des compétences et un accompagnement particulier.",
-      icon: "♿",
+      title: "Créer du lien entre tous les acteurs pour fluidifier l'information",
+      description: "Quand les intervenants sont nombreux, les informations se perdent. Nous assurons une communication claire, partagée et continue.",
+      icon: (
+        <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+        </svg>
+      ),
       color: "primary",
       animation: "fauteuil" // Pour Lottie future
     }
@@ -95,14 +111,19 @@ export default function NosMissions() {
                     whileHover={{ rotate: [0, -5, 5, -5, 0] }}
                     transition={{ duration: 0.5 }}
                     className={`
-                      w-24 h-24 rounded-2xl flex items-center justify-center text-4xl
+                      w-24 h-24 rounded-2xl flex items-center justify-center
                       ${mission.color === 'primary' ? 'bg-primary/10' : ''}
                       ${mission.color === 'secondary' ? 'bg-secondary/10' : ''}
                       ${mission.color === 'accent' ? 'bg-accent/10' : ''}
                     `}
                   >
-                    {/* Icône temporaire - sera remplacée par Lottie */}
-                    <span className="animate-pulse-slow">{mission.icon}</span>
+                    {/* Icône SVG */}
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      {mission.icon}
+                    </motion.div>
                   </motion.div>
                   
                   {/* Contenu de la mission */}
