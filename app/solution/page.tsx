@@ -16,7 +16,7 @@ export default function NotreSolution() {
         </svg>
       ),
       title: 'Évaluation gériatrique complète',
-      description: 'Réalisé par une infirmière spécialisée : dépistage des fragilités et mise en place d’une solution personnalisée.',
+      description: 'Réalisé par une infirmière spécialisée : dépistage des fragilités et mise en place d\'une solution personnalisée.',
       included: true
     },
     {
@@ -25,8 +25,8 @@ export default function NotreSolution() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       ),
-      title: 'Aide à la recherche d’auxiliaires de vie qualifiées',
-      description: 'Coordination de l’ensemble des auxiliaires de vie, en CESU ou en prestation, afin de garantir un accompagnement personnalisé et de qualité.',
+      title: 'Aide à la recherche d\'auxiliaires de vie qualifiées',
+      description: 'Coordination de l\'ensemble des auxiliaires de vie, en CESU ou en prestation, afin de garantir un accompagnement personnalisé et de qualité.',
       included: true
     },
     {
@@ -56,7 +56,7 @@ export default function NotreSolution() {
         </svg>
       ),
       title: 'Gestion administrative',
-      description: 'Nous assurons la mise en place de l’APA, de la PCH et des contrats de gré à gré, avec une prise en charge complète des démarches administratives et une optimisation des aides financières. Efficacité et tranquillité d’esprit garanties.',
+      description: 'Nous assurons la mise en place de l\'APA, de la PCH et des contrats de gré à gré, avec une prise en charge complète des démarches administratives et une optimisation des aides financières. Efficacité et tranquillité d\'esprit garanties.',
       included: true
     },
     {
@@ -415,6 +415,306 @@ export default function NotreSolution() {
         </div>
       </section>
 
+      {/* Mises en situation */}
+      <section className="py-20 bg-gradient-to-br from-white to-secondary/5">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Ils nous ont fait confiance
+            </h2>
+            <p className="text-xl text-gray-700">
+              Découvrez comment nous avons transformé leur quotidien
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* Exemple 1 - Dame de 93 ans */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow"
+            >
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Coordination réussie</h3>
+                    <p className="text-sm text-gray-600">Dame de 93 ans</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Situation :</span> Vivant seule avec troubles cognitifs modérés, 2 auxiliaires CESU sans coordination, fille éloignée gérant à distance.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="text-primary">🎯</span> Objectif
+                  </h4>
+                  <p className="text-sm text-gray-700">
+                    La fille souhaite structurer l’aide autour de sa mère, éviter les risques de chute, alléger sa charge mentale et améliorer la communication entre intervenants.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="text-secondary">✨</span> Nos actions
+                  </h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Évaluation globale par notre infirmière
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Constitution et dépôt du dossier APA pour obtenir une prise en charge partielle des aides humaines.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Clarification des missions de chaque auxiliaire de vie + mise en place d’un planning partagé. Réunion régulières avec elles pour assurer une coordination médico sociale.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Coordination avec l’infirmière, récupération des documents médicaux et mise à jour des ordonnances.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Transmission régulière des informations à l’ensemble des professionnels de santé et retour mensuel à la fille pour que tout le monde ait le même niveau d’information.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Vérification qualité : passages mensuel de l’équipe de coordination, audit des nouvelles problématiques, alertes en cas d’évolution.
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="text-sm font-medium text-primary">
+                    → Tranquillité d'esprit retrouvée
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Exemple 2 - Monsieur de 81 ans */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow"
+            >
+              <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 p-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Retour à domicile</h3>
+                    <p className="text-sm text-gray-600">Monsieur de 81 ans</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Situation :</span> Monsieur de 81 ans, en sortie d’hospitalisation après une fracture du col du fémur. Il vit seul, refuse une entrée en EHPAD, son fils est peu disponible.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="text-primary">🎯</span> Objectif
+                  </h4>
+                  <p className="text-sm text-gray-700">
+                    Organiser rapidement un retour à domicile sécurisé et adapté.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="text-secondary">✨</span> Nos actions
+                  </h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Mise en place d’une aide à domicile avec présence quotidienne (toilette, repas, accompagnement).
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Recherche et réservation de solutions de répit : accueil de jour deux fois par semaine et garde de nuit ponctuelle.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Coordination médicale : récupération des comptes rendus hospitaliers, organisation des examens de contrôle et gestion des transports.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Suivi régulier de la qualité des interventions + ajustements selon les retours terrain.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Transmission de toutes les infos aux professionnels de santé + reporting au fils.
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="text-sm font-medium text-secondary">
+                    → Autonomie préservée à domicile
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Exemple 3 - Madame de 86 ans */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow"
+            >
+              <div className="bg-gradient-to-br from-accent/20 to-accent/10 p-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-accent-dark rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Lien social retrouvé</h3>
+                    <p className="text-sm text-gray-600">Madame de 86 ans</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Situation :</span> Autonome physiquement mais isolée affectivement, légère dépression, reste enfermée.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="text-primary">🎯</span> Objectif
+                  </h4>
+                  <p className="text-sm text-gray-700">
+                    Sa nièce souhaite améliorer son quotidien, favoriser les sorties et l’aider à renouer du lien social.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="text-secondary">✨</span> Nos actions
+                  </h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Recherche de clubs seniors à proximité, inscription à deux activités hebdomadaires (atelier mémoire et gymnastique douce).
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Organisation logistique : planning avec l’auxiliaire de vie pour l’accompagner en sortie, transports assurés.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Coordination avec le médecin traitant pour suivi moral et adaptation du traitement.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Mise en place d’un carnet de liaison pour fluidifier les échanges avec les professionnels.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Appels réguliers à la nièce avec retour sur les progrès et suggestions pour renforcer le lien familial.
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="text-sm font-medium text-accent-dark">
+                    → Joie de vivre retrouvée
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Message de conclusion */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-lg text-gray-700 font-medium">
+              Chaque situation est unique, notre accompagnement aussi.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 mt-6 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors font-medium"
+            >
+              Parlons de votre situation
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQ - Ce qu'Autrement Senior n'est PAS vs ce qu'il EST */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -432,40 +732,40 @@ export default function NotreSolution() {
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
-                question: "Autrement Senior intervient-il en cas d’urgence médicale ?",
+                question: "Autrement Senior intervient-il en cas d'urgence médicale ?",
                 example: "Exemple : Un senior chute.",
-                wrong: "Autrement Senior n’intervient pas dans la gestion directe des urgences médicales. ",
-                right: "Un protocole d’urgence est anticipé en amont avec la famille et les intervenants afin de garantir une réaction rapide et adaptée en cas de besoin."
+                wrong: "Autrement Senior n'intervient pas dans la gestion directe des urgences médicales. ",
+                right: "Un protocole d'urgence est anticipé en amont avec la famille et les intervenants afin de garantir une réaction rapide et adaptée en cas de besoin."
               },
               {
-                question: "Autrement Senior est-il un prestataire d’auxiliaires de vie ?",
+                question: "Autrement Senior est-il un prestataire d'auxiliaires de vie ?",
                 example: "Exemple : Un senior a besoin d'un accompagnement pour faire ses courses.",
                 wrong: "Autrement senior ne se contente pas d'apporter une aide aux besoins primaires.",
-                right: "Autrement Senior ne se limite pas à répondre à une demande ponctuelle. Nous évaluons l’ensemble des besoins du senior (médicaux, cognitifs, sociaux, pratiques) et construisons un plan d’action personnalisé, incluant la mise en relation avec les bons intervenants, dont des auxiliaires de vie si nécessaire."
+                right: "Autrement Senior ne se limite pas à répondre à une demande ponctuelle. Nous évaluons l'ensemble des besoins du senior (médicaux, cognitifs, sociaux, pratiques) et construisons un plan d'action personnalisé, incluant la mise en relation avec les bons intervenants, dont des auxiliaires de vie si nécessaire."
               },
               {
                 question: "Autrement Senior est-il un service public ou apparenté ?",
                 example: "Exemple : Une famille aimerait savoir si notre solution est éligible à une aide financière.",
-                wrong: "Autrement Senior n’est pas une solution finançable par des aides de l’État.",
-                right: "Autrement Senior est un service privé, mais agréé. À ce titre, il permet aux familles de bénéficier du crédit d’impôt pour les services à la personne, ce qui en fait une solution partiellement finançable."
+                wrong: "Autrement Senior n'est pas une solution finançable par des aides de l'État.",
+                right: "Autrement Senior est un service privé, mais agréé. À ce titre, il permet aux familles de bénéficier du crédit d'impôt pour les services à la personne, ce qui en fait une solution partiellement finançable."
               },
               {
                 question: "Comment Autrement Senior agit-il face aux refus du senior ?",
                 example: "Exemple : Un senior refuse de se laver.",
-                wrong: "Autrement Senior ne contraint pas l’aîné.",
-                right: "Nous construisons un protocole individualisé et progressif, en collaboration avec l’entourage et les professionnels, pour répondre aux besoins tout en respectant les choix et le rythme du senior."
+                wrong: "Autrement Senior ne contraint pas l'aîné.",
+                right: "Nous construisons un protocole individualisé et progressif, en collaboration avec l'entourage et les professionnels, pour répondre aux besoins tout en respectant les choix et le rythme du senior."
               },
               {
                 question: "Que fait Autrement Senior face à une perte d'autonomie soudaine ?",
                 example: "Exemple : Un senior perd son autonomie subitement suite à une grippe.",
                 wrong: "Autrement senior ne maintient pas le plan d'action initial.",
-                right: "Autrement Senior réagit rapidement en réévaluant la situation. Un audit est réalisé avec l’ensemble des partenaires de santé (médecin, infirmier, auxiliaires de vie…) afin d’adapter ou de reconstruire un nouveau plan d’action, au plus près des besoins actuels du senior."
+                right: "Autrement Senior réagit rapidement en réévaluant la situation. Un audit est réalisé avec l'ensemble des partenaires de santé (médecin, infirmier, auxiliaires de vie…) afin d'adapter ou de reconstruire un nouveau plan d'action, au plus près des besoins actuels du senior."
               },
               {
                 question: "Autrement Senior complique-t-il la prise en charge ?",
                 example: "Exemple : Une famille se sent surchargée par la multiplicité et la complexité des démarches.",
                 wrong: "Autrement senior n'est pas un interlocuteur de plus dans la prise en charge des seniors.",
-                right: "Autrement Senior devient l’interlocuteur unique des familles. Nous centralisons les informations, coordonnons tous les intervenants et simplifions chaque démarche pour alléger la charge mentale et rendre la prise en charge plus fluide."
+                right: "Autrement Senior devient l'interlocuteur unique des familles. Nous centralisons les informations, coordonnons tous les intervenants et simplifions chaque démarche pour alléger la charge mentale et rendre la prise en charge plus fluide."
               }
             ].map((item, index) => (
               <motion.div
