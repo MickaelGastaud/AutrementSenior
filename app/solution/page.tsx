@@ -427,9 +427,6 @@ export default function NotreSolution() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Questions fréquentes
             </h2>
-            <p className="text-xl text-gray-700">
-              Comprendre ce qu&apos;Autrement Senior fait vraiment pour vous
-            </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto space-y-6">
