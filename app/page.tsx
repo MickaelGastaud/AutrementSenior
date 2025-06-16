@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import NosMissions from './components/sections/NosMissions';
 import Equipe from './components/sections/Equipe';
@@ -9,6 +9,10 @@ import Equipe from './components/sections/Equipe';
 export default function Home() {
   const [displayedText1, setDisplayedText1] = useState('');
   const [displayedText2, setDisplayedText2] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
   
   const text1 = "Le Care Management pour";
   const text2 = "vos proches âgés";
@@ -37,8 +41,24 @@ export default function Home() {
       }
     }, 50);
 
-    return () => {};
+    // Popup après 30 secondes
+    const popupTimer = setTimeout(() => {
+      setShowPopup(true);
+    }, 30000); // 30 secondes
+
+    return () => {
+      clearTimeout(popupTimer);
+    };
   }, []);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Ici tu peux ajouter la logique pour envoyer l'email à ton service newsletter
+    setIsSubscribed(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000);
+  };
 
   return (
     <main className="min-h-screen">
@@ -83,8 +103,7 @@ export default function Home() {
               transition={{ delay: 3 }}
               className="text-xl text-gray-200 mb-8 max-w-2xl"
             >
-              Un accompagnement personnalisé et bienveillant pour maintenir l'autonomie 
-              et le bien-être de vos aînés à domicile.
+              La solution clé en main et innovante pour vous permettre de rester chez vous, en toute sérénité
             </motion.p>
             
             <motion.div 
@@ -106,37 +125,7 @@ export default function Home() {
                 Nous contacter
               </Link>
             </motion.div>
-
-            {/* Badge gratuit */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 4 }}
-              className="mt-8"
-            >
-              <span className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">
-                Gratuit et sans engagement
-              </span>
-            </motion.div>
           </div>
-        </div>
-
-        {/* Éléments décoratifs (étoiles) */}
-        <div className="absolute bottom-10 right-10 hidden lg:block">
-          <motion.div
-            animate={{ 
-              rotate: 360,
-              scale: [1, 1.2, 1],
-            }}
-            transition={{ 
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="text-white/20 text-6xl"
-          >
-            ⭐
-          </motion.div>
         </div>
       </section>
 
@@ -145,6 +134,63 @@ export default function Home() {
 
       {/* Section Équipe */}
       <Equipe />
+
+      {/* Bandeau Médias */}
+      <section className="py-12 bg-white border-y border-gray-100">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h3 className="text-lg font-medium text-gray-600">
+              Ils parlent de nous
+            </h3>
+          </motion.div>
+          
+          {/* Conteneur du bandeau défilant */}
+          <div className="relative overflow-hidden">
+            {/* Masque graduel sur les côtés */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+            
+            <motion.div
+              animate={{
+                x: [0, -2000],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 60, // Défilement très lent
+                  ease: "linear",
+                },
+              }}
+              className="flex items-center"
+            >
+              {/* Les logos sont répétés 3 fois pour un défilement continu */}
+              {[1, 2, 3].map((group) => (
+                <div key={group} className="flex items-center gap-24 px-12 flex-shrink-0">
+                  {/* Logos existants dans votre dossier */}
+                  <img src="/images/autrement-senior-france3.png" alt="France 3" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                  <img src="/images/autrement-senior-midilibre.png" alt="Midi Libre" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                  <img src="/images/autrement-senior-francebleu.jpg" alt="France Bleu" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                  <img src="/images/autrement-senior-telegrafik.jpg" alt="Telegrafik" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                  <img src="/images/autrement-senior-actusoins.jpg" alt="ActuSoins" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                  
+                  {/* Décommentez ces lignes si vous avez ces logos */}
+                  {/* <img src="/images/autrement-senior-leparisien.png" alt="Le Parisien" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" /> */}
+                  {/* <img src="/images/autrement-senior-lexpress.png" alt="L'Express" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" /> */}
+                  {/* <img src="/images/autrement-senior-lesechos.png" alt="Les Echos" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" /> */}
+                  {/* <img src="/images/autrement-senior-europe1.png" alt="Europe 1" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" /> */}
+                  {/* <img src="/images/autrement-senior-challenges.png" alt="Challenges" className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" /> */}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Section Témoignages */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -276,7 +322,7 @@ export default function Home() {
               Prêt à améliorer le quotidien de votre proche ?
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Contactez-nous dès aujourd'hui pour une évaluation gratuite et sans engagement
+              Contactez-nous dès aujourd&apos;hui pour une évaluation gratuite et sans engagement
             </p>
             <Link
               href="/contact"
@@ -290,6 +336,133 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Popup Newsletter avec vidéo */}
+      <AnimatePresence>
+        {showPopup && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 z-50"
+              onClick={() => {
+                setShowPopup(false);
+                setVideoStarted(false);
+              }}
+            />
+            
+            {/* Popup */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            >
+              <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-auto">
+                {/* Bouton fermer */}
+                <button
+                  onClick={() => {
+                    setShowPopup(false);
+                    setVideoStarted(false);
+                  }}
+                  className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg z-10"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Vidéo YouTube */}
+                  <div className="aspect-video md:aspect-auto relative bg-gray-900">
+                    {!videoStarted ? (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setVideoStarted(true)}
+                          className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full flex items-center gap-3 text-lg font-medium shadow-2xl"
+                        >
+                          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                          Écouter le message de Caroline
+                        </motion.button>
+                      </div>
+                    ) : (
+                      <iframe
+                        className="w-full h-full min-h-[300px]"
+                        src="https://www.youtube.com/embed/U3moi5VrEu0?autoplay=1&rel=0"
+                        title="Message de Caroline"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    )}
+                  </div>
+
+                  {/* Formulaire Newsletter */}
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    {!isSubscribed ? (
+                      <>
+                        <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                          Restez informé(e) !
+                        </h3>
+                        <p className="text-gray-700 mb-6">
+                          Recevez nos conseils et actualités pour mieux accompagner vos proches.
+                        </p>
+                        
+                        <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+                          <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Votre adresse email"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                            required
+                          />
+                          
+                          <button
+                            type="submit"
+                            className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors"
+                          >
+                            S&apos;inscrire à la newsletter
+                          </button>
+                        </form>
+                        
+                        <p className="text-xs text-gray-500 mt-4">
+                          En vous inscrivant, vous acceptez de recevoir nos communications. 
+                          Vous pouvez vous désinscrire à tout moment.
+                        </p>
+                      </>
+                    ) : (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="text-center"
+                      >
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                          Merci !
+                        </h3>
+                        <p className="text-gray-700">
+                          Vous êtes maintenant inscrit(e) à notre newsletter.
+                        </p>
+                      </motion.div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
