@@ -8,6 +8,81 @@ export default function NotreSolution() {
   const [showPlayButton, setShowPlayButton] = useState(true);
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
 
+  // Schema.org pour le SEO local et service
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://autrementsenior.fr/#business",
+        "name": "Autrement Senior - Care Management Hérault",
+        "alternateName": "Autrement Senior Care Management",
+        "description": "Premier service de Care Management dans l'Hérault. Coordination médico-sociale et accompagnement personnalisé pour seniors à Montpellier et alentours.",
+        "url": "https://autrementsenior.fr",
+        "telephone": "06-49-60-41-99",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montpellier",
+          "addressRegion": "Hérault",
+          "postalCode": "34000",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.610769,
+          "longitude": 3.876716
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Caroline Gastaud",
+          "jobTitle": "Fondatrice Autrement Senior"
+        },
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Hérault"
+          },
+          {
+            "@type": "City",
+            "name": "Montpellier"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://autrementsenior.fr/solution#care-management",
+        "serviceType": "Care Management pour Seniors",
+        "provider": {
+          "@id": "https://autrementsenior.fr/#business"
+        },
+        "name": "Méthode PEPS - Care Management personnalisé",
+        "description": "Service de coordination médico-sociale pour seniors dans l'Hérault. Accompagnement global incluant évaluation gériatrique, coordination des auxiliaires de vie, gestion administrative APA/PCH.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Accompagnement individuel",
+            "price": "300",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Accompagnement couple",
+            "price": "450",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    ]
+  };
+
   const services = [
     {
       icon: (
@@ -98,6 +173,7 @@ export default function NotreSolution() {
   };
 
   return (
+    
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section avec vidéo */}
       <section className="relative py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
@@ -845,6 +921,9 @@ export default function NotreSolution() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
+            <p className="mt-6 text-white/80">
+                Service disponible dans tout l&apos;Hérault : Montpellier, Juvignac, Castelnau-le-lez, Saint-Jean-de-Vedas, Frontignan...
+              </p>
           </motion.div>
         </div>
       </section>
