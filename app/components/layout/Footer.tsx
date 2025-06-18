@@ -57,8 +57,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/solution#coordination" className="text-gray-400 hover:text-accent transition-colors text-sm">
-                  Coordination des soins
+                <Link href="/apa" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                  Allocation Personnalisée d’Autonomie
                 </Link>
               </li>
               <li>
