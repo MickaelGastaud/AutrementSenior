@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -23,6 +23,10 @@ export default function Contact() {
     email: '',
   });
 
+  // Références pour le scroll
+  const formRef = useRef<HTMLFormElement>(null);
+  const personalInfoRef = useRef<HTMLDivElement>(null);
+
   const besoins = [
     { value: 'coordination-peps', label: 'Offre Coordination / PEPS', icon: '🎯' },
     { value: 'sortie-hospitalisation', label: 'Sortie d\'hospitalisation', icon: '🏥' },
@@ -35,6 +39,20 @@ export default function Contact() {
     setFormData({ ...formData, besoin: value });
     setShowPersonalInfo(true);
   };
+
+  // Effet pour le scroll automatique quand le formulaire personnel apparaît
+  useEffect(() => {
+    if (showPersonalInfo && personalInfoRef.current) {
+      // Petit délai pour laisser l'animation se lancer
+      setTimeout(() => {
+        personalInfoRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest' 
+        });
+      }, 100);
+    }
+  }, [showPersonalInfo]);
 
   const validateForm = () => {
     const newErrors = { telephone: '', email: '' };
@@ -71,11 +89,33 @@ export default function Contact() {
     
     setIsSubmitting(true);
 
-    // Envoi simulé — à remplacer par appel API
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // ========== REMPLACER CETTE PARTIE PAR VOTRE LOGIQUE D'ENVOI ==========
+      // Exemple avec API Route Next.js :
+      /*
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de l\'envoi');
+      }
+      */
+
+      // Simulation d'envoi (à supprimer en production)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       setIsSubmitted(true);
-    }, 1500);
+    } catch (error) {
+      console.error('Erreur:', error);
+      alert('Une erreur est survenue. Veuillez réessayer.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -178,7 +218,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto"
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+            <form ref={formRef} onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
               {/* Étape 1 : Choix du besoin */}
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -213,10 +253,12 @@ export default function Contact() {
               <AnimatePresence>
                 {showPersonalInfo && (
                   <motion.div
+                    ref={personalInfoRef}
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
+                    className="scroll-mt-20" // Ajout d'une marge pour le scroll
                   >
                     <div className="border-t border-gray-200 pt-8 mt-8">
                       <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -373,3 +415,94 @@ export default function Contact() {
     </div>
   );
 }
+
+/* 
+===========================================
+GUIDE D'IMPLÉMENTATION POUR L'ENVOI D'EMAIL
+===========================================
+
+OPTION 1 : API Route Next.js + Service d'email
+-------------------------------------------
+1. Créer un fichier /app/api/contact/route.ts :
+
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
+
+export async function POST(request: Request) {
+  const data = await request.json();
+  
+  // Configuration du transporteur (exemple avec Gmail)
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  // Envoi de l'email
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: 'contact@autrementsenior.fr',
+      subject: `Nouvelle demande : ${data.besoin}`,
+      html: `
+        <h2>Nouvelle demande de contact</h2>
+        <p><strong>Type de demande :</strong> ${data.besoin}</p>
+        <p><strong>Nom :</strong> ${data.nom} ${data.prenom}</p>
+        <p><strong>Téléphone :</strong> ${data.telephone}</p>
+        <p><strong>Email :</strong> ${data.email}</p>
+        <p><strong>Message :</strong> ${data.message || 'Aucun message'}</p>
+        <p><strong>Accepte les communications :</strong> ${!data.rgpdAccept ? 'Oui' : 'Non'}</p>
+      `,
+    });
+    
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return NextResponse.json({ error: 'Erreur lors de l\'envoi' }, { status: 500 });
+  }
+}
+
+OPTION 2 : Service tiers (Recommandé)
+------------------------------------
+Services recommandés :
+- SendGrid
+- Mailgun
+- Postmark
+- Resend (nouveau et simple)
+
+Exemple avec Resend :
+1. npm install resend
+2. Créer /app/api/contact/route.ts :
+
+import { Resend } from 'resend';
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(request: Request) {
+  const data = await request.json();
+  
+  const { data: email, error } = await resend.emails.send({
+    from: 'contact@autrementsenior.fr',
+    to: ['mickael@autrementsenior.fr'],
+    subject: `Nouvelle demande : ${data.besoin}`,
+    html: // Même HTML que ci-dessus
+  });
+  
+  if (error) return NextResponse.json({ error }, { status: 500 });
+  return NextResponse.json({ success: true });
+}
+
+OPTION 3 : Webhook + CRM
+-----------------------
+Si vous utilisez un CRM (HubSpot, Salesforce, etc.) :
+- Envoyer les données directement au CRM via leur API
+- Le CRM gère ensuite l'envoi d'emails et le suivi
+
+SÉCURITÉ
+--------
+1. Toujours valider les données côté serveur
+2. Utiliser des variables d'environnement pour les credentials
+3. Implémenter un rate limiting pour éviter le spam
+4. Ajouter un captcha (reCAPTCHA) si nécessaire
+
+*/
