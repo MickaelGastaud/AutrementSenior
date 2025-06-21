@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,22 +39,42 @@ export default function Header() {
 
       {/* Header principal */}
       <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-sm'}`}>
-        <nav className="container mx-auto px-4 py-3">
+        <nav className="container mx-auto px-4 py-3 relative">
           <div className="flex items-center justify-between">
-            {/* Logo + Texte */}
-            <Link href="/" className="group">
-              <div className="flex items-center gap-2 transition-all duration-300">
-                {/* Logo image */}
-                <div className={`w-10 h-auto transition-transform duration-300 transform hover:scale-105`}>
-                  <img
-                    src="/images/logo.png"
-                    alt="Logo Autrement Senior"
-                    className="w-full h-auto object-contain"
-                  />
+            {/* Logo + Texte avec effet de sortie */}
+            <Link href="/" className="group relative">
+              <div className="flex items-center gap-3 transition-all duration-300">
+                {/* Conteneur du logo qui sort */}
+                <div className="relative">
+                  {/* Fond blanc derrière le logo pour masquer la ligne */}
+                  <div className="absolute inset-0 bg-white rounded-full scale-110"></div>
+                  {/* Logo qui dépasse */}
+                  <div className={`
+                    relative w-20 h-20 sm:w-24 sm:h-24 
+                    -mt-8 -mb-8 
+                    transition-all duration-300 
+                    transform group-hover:scale-110 group-hover:rotate-3
+                    ${isScrolled ? 'w-16 h-16 sm:w-20 sm:h-20 -mt-6 -mb-6' : ''}
+                  `}>
+                    <Image
+                      src="/images/logo.png"
+                      alt="Logo Autrement Senior"
+                      fill
+                      className="object-contain drop-shadow-lg"
+                      priority
+                    />
+                  </div>
                 </div>
+                
                 {/* Texte à côté du logo */}
-                <span className="text-lg sm:text-xl font-bold text-primary group-hover:text-primary-dark transition-colors">Autrement</span>
-                <span className="text-lg sm:text-xl font-bold text-secondary group-hover:text-secondary-dark transition-colors">Senior</span>
+                <div className="flex flex-col sm:flex-row sm:gap-2">
+                  <span className="text-xl sm:text-2xl font-bold text-primary group-hover:text-primary-dark transition-colors leading-tight">
+                    Autrement
+                  </span>
+                  <span className="text-xl sm:text-2xl font-bold text-secondary group-hover:text-secondary-dark transition-colors leading-tight">
+                    Senior
+                  </span>
+                </div>
               </div>
             </Link>
 
@@ -70,7 +91,7 @@ export default function Header() {
               ))}
               <Link
                 href="/contact"
-                className="bg-secondary text-white px-6 py-2.5 rounded-lg hover:bg-secondary-dark transition-all hover:scale-105 font-medium"
+                className="bg-secondary text-white px-6 py-2.5 rounded-lg hover:bg-secondary-dark transition-all hover:scale-105 font-medium shadow-lg"
               >
                 Nous Contacter
               </Link>
