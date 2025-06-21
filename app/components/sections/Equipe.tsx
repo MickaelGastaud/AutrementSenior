@@ -7,6 +7,7 @@ import Image from 'next/image';
 export default function Equipe() {
   const [selectedMember, setSelectedMember] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
+  const [showSoundHint, setShowSoundHint] = useState(false);
 
   const equipe = [
     {
@@ -96,8 +97,22 @@ export default function Equipe() {
     // Si c'est Caroline (index 0) et qu'elle a une vidéo, lancer automatiquement
     if (selectedMember === 0 && equipe[0].hasVideo) {
       setShowVideo(true);
+      // Afficher l'indicateur de son après un court délai
+      setTimeout(() => setShowSoundHint(true), 1000);
     }
   }, [selectedMember, equipe]);
+
+  // Gérer l'affichage de l'indicateur de son
+  useEffect(() => {
+    if (showVideo && currentMember.hasVideo) {
+      setShowSoundHint(true);
+      // Masquer l'indicateur après 5 secondes
+      const timer = setTimeout(() => setShowSoundHint(false), 5000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowSoundHint(false);
+    }
+  }, [showVideo, currentMember.hasVideo]);
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -191,6 +206,29 @@ export default function Equipe() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
+
+                      {/* Indicateur de son */}
+                      <AnimatePresence>
+                        {showSoundHint && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="absolute bottom-4 left-4 bg-primary text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-10"
+                            onClick={() => setShowSoundHint(false)}
+                          >
+                            <motion.div
+                              animate={{ scale: [1, 1.2, 1] }}
+                              transition={{ repeat: Infinity, duration: 1.5 }}
+                            >
+                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                              </svg>
+                            </motion.div>
+                            <span className="text-sm font-medium">Cliquez pour activer le son</span>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ) : (
                     <>
