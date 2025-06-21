@@ -52,7 +52,8 @@ export default function Equipe() {
         { icon: "⭐", text: "Excellence du service", color: "primary" }
       ],
       initiales: "AB",
-      hasVideo: false,
+      videoUrl: "https://www.youtube.com/embed/6U2wsi8K5J0",
+      hasVideo: true,
       photo: "/images/anissa-benbekhta.jpg"
     },
     {
@@ -67,7 +68,8 @@ export default function Equipe() {
         { icon: "🤝", text: "Liaison santé", color: "primary" }
       ],
       initiales: "FB",
-      hasVideo: false,
+      videoUrl: "https://www.youtube.com/embed/1_1WVxeJNOg",
+      hasVideo: true,
       photo: "/images/francoise-barre.jpg"
     },
     {
@@ -212,7 +214,7 @@ export default function Equipe() {
                       
                       {/* Contenu au-dessus de la photo */}
                       <div className="relative z-10 flex items-center justify-center h-full min-h-[400px] md:min-h-[500px] p-8">
-                        {currentMember.hasVideo && selectedMember !== 0 ? (
+                        {currentMember.hasVideo ? (
                           <div className="text-center">
                             <motion.button
                               whileHover={{ scale: 1.1 }}
