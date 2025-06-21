@@ -207,14 +207,14 @@ export default function Equipe() {
                         </svg>
                       </button>
 
-                      {/* Indicateur de son */}
+                      {/* Indicateur de son - Déplacé en haut */}
                       <AnimatePresence>
                         {showSoundHint && (
                           <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="absolute bottom-4 left-4 bg-primary text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-10"
+                            className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-10 cursor-pointer"
                             onClick={() => setShowSoundHint(false)}
                           >
                             <motion.div
