@@ -7,7 +7,6 @@ import Image from 'next/image';
 export default function Equipe() {
   const [selectedMember, setSelectedMember] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
-  const [showSoundHint, setShowSoundHint] = useState(false);
 
   const equipe = [
     {
@@ -92,28 +91,6 @@ export default function Equipe() {
 
   const currentMember = equipe[selectedMember];
 
-  // Lancer automatiquement la vidéo pour Caroline
-  useEffect(() => {
-    // Si c'est Caroline (index 0) et qu'elle a une vidéo, lancer automatiquement
-    if (selectedMember === 0 && equipe[0].hasVideo) {
-      setShowVideo(true);
-      // Afficher l'indicateur de son après un court délai
-      setTimeout(() => setShowSoundHint(true), 1000);
-    }
-  }, [selectedMember, equipe]);
-
-  // Gérer l'affichage de l'indicateur de son
-  useEffect(() => {
-    if (showVideo && currentMember.hasVideo) {
-      setShowSoundHint(true);
-      // Masquer l'indicateur après 5 secondes
-      const timer = setTimeout(() => setShowSoundHint(false), 5000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowSoundHint(false);
-    }
-  }, [showVideo, currentMember.hasVideo]);
-
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
@@ -141,10 +118,7 @@ export default function Equipe() {
                 key={member.id}
                 onClick={() => {
                   setSelectedMember(index);
-                  // Si ce n'est pas Caroline, masquer la vidéo
-                  if (index !== 0) {
-                    setShowVideo(false);
-                  }
+                  setShowVideo(false); // Toujours masquer la vidéo au changement
                 }}
                 className={`
                   px-6 py-3 rounded-full font-medium transition-all
@@ -192,7 +166,7 @@ export default function Equipe() {
                   {currentMember.hasVideo && showVideo ? (
                     <div className="absolute inset-0">
                       <iframe
-                        src={`${currentMember.videoUrl}?autoplay=1&mute=1`}
+                        src={`${currentMember.videoUrl}?autoplay=1&mute=0`}
                         title={`Présentation de ${currentMember.nom}`}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -206,29 +180,6 @@ export default function Equipe() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
-
-                      {/* Indicateur de son - Déplacé en haut */}
-                      <AnimatePresence>
-                        {showSoundHint && (
-                          <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-10 cursor-pointer"
-                            onClick={() => setShowSoundHint(false)}
-                          >
-                            <motion.div
-                              animate={{ scale: [1, 1.2, 1] }}
-                              transition={{ repeat: Infinity, duration: 1.5 }}
-                            >
-                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                              </svg>
-                            </motion.div>
-                            <span className="text-sm font-medium">Cliquez pour activer le son</span>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
                     </div>
                   ) : (
                     <>
@@ -258,14 +209,14 @@ export default function Equipe() {
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={() => setShowVideo(true)}
-                              className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto hover:bg-white/30 transition-all"
+                              className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto hover:bg-white/30 transition-all group"
                             >
-                              <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                              <svg className="w-12 h-12 text-white ml-1 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                               </svg>
                             </motion.button>
                             <h3 className="text-white text-2xl font-bold mb-2">Vidéo de {currentMember.nom.split(' ')[0]}</h3>
-                            <p className="text-white/80">Découvrez notre vision</p>
+                            <p className="text-white/80">Cliquez pour découvrir</p>
                           </div>
                         ) : (
                           <div className="text-center">
