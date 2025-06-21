@@ -41,7 +41,7 @@ export default function MentionsLegales() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Éditeur du site</h2>
               <div className="space-y-2 text-gray-600">
                 <p><strong>Raison sociale :</strong> Autrement Senior</p>
-                <p><strong>Forme juridique :</strong> SARL</p>
+                <p><strong>Forme juridique :</strong> SASU</p>
                 <p><strong>Numéro d'agrément :</strong> SAP911830974</p>
                 <p><strong>Marque déposée :</strong> N°5013954</p>
                 <p><strong>Siège social :</strong> 12B rue des Prés, 34430 Saint-Jean-De-Vedas</p>

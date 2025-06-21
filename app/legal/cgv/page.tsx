@@ -37,7 +37,7 @@ export default function CGV() {
   };
 
   const sections = [
-    { id: 'article-1', title: 'Article 1 - Champ d\'application' },
+    { id: 'article-1', title: "Article 1 - Champ d'application" },
     { id: 'article-2', title: 'Article 2 - Définitions' },
     { id: 'article-3', title: 'Article 3 - Conditions d\'accès' },
     { id: 'article-4', title: 'Article 4 - Tarifs' },
@@ -121,7 +121,7 @@ export default function CGV() {
                   <div className="space-y-1 text-sm">
                     <p><strong>Capital social :</strong> 1 000 €</p>
                     <p><strong>RCS :</strong> Montpellier n° 911 830 974</p>
-                    <p><strong>N° d\'agrément :</strong> SAP911830974</p>
+                    <p><strong>N° d'agrément :</strong> SAP911830974</p>
                   </div>
                   <div className="md:col-span-2">
                     <p><strong>Siège social :</strong> 12B rue des Prés, 34430 Saint-Jean-De-Vedas</p>
@@ -131,18 +131,18 @@ export default function CGV() {
 
               {/* Article 1 */}
               <section id="article-1" className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 1 - Champ d\'application</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 1 - Champ d'application</h2>
                 
                 <p className="text-gray-700 mb-4">
                   Toute collaboration avec la société Autrement Senior SASU, ci-après « <strong>Autrement Senior</strong> » ou « <strong>Mandataire</strong> », 
-                  entraîne pour toute personne souhaitant s\'engager dans une ou plusieurs des prestations fournies par la société, 
-                  ci-après dénommée « <strong>Bénéficiaire</strong> », l\'application sans réserve de l\'intégralité des conditions générales suivantes.
+                  entraîne pour toute personne souhaitant s'engager dans une ou plusieurs des prestations fournies par la société, 
+                  ci-après dénommée « <strong>Bénéficiaire</strong> », l'application sans réserve de l'intégralité des conditions générales suivantes.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">1.1 Application des conditions</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
-                  <li>Les présentes conditions générales s\'appliquent de plein droit à toutes les ventes de prestations d\'aide à domicile réalisées par Autrement Senior en sa qualité de mandataire.</li>
-                  <li>Toute demande de Services implique l\'adhésion sans réserve aux présentes conditions générales qui prévalent sur toutes autres conditions et documents contradictoires.</li>
+                  <li>Les présentes conditions générales s'appliquent de plein droit à toutes les ventes de prestations d'aide à domicile réalisées par Autrement Senior en sa qualité de mandataire.</li>
+                  <li>Toute demande de Services implique l'adhésion sans réserve aux présentes conditions générales qui prévalent sur toutes autres conditions et documents contradictoires.</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">1.2 Accessibilité</h3>
@@ -151,7 +151,7 @@ export default function CGV() {
                   <li>Disponibles uniquement en langue française</li>
                   <li>Accessibles à tout moment sur le site <strong>www.autrementsenior.fr</strong></li>
                   <li>Autrement Senior se réserve le droit de modifier les présentes conditions générales sans préavis</li>
-                  <li>Seules les conditions générales en vigueur au jour de la signature du contrat s\'appliqueront</li>
+                  <li>Seules les conditions générales en vigueur au jour de la signature du contrat s'appliqueront</li>
                 </ul>
               </section>
 
@@ -170,7 +170,7 @@ export default function CGV() {
                     <tbody>
                       <tr>
                         <td className="border border-gray-300 px-4 py-2 font-medium">Bénéficiaire(s) ou Mandant(s)</td>
-                        <td className="border border-gray-300 px-4 py-2">Personne physique s\'engageant dans un contrat de mandat avec Autrement Senior dans l\'optique de bénéficier de prestations de services</td>
+                        <td className="border border-gray-300 px-4 py-2">Personne physique s'engageant dans un contrat de mandat avec Autrement Senior dans l'optique de bénéficier de prestations de services</td>
                       </tr>
                       <tr className="bg-gray-50">
                         <td className="border border-gray-300 px-4 py-2 font-medium">Services</td>
@@ -178,7 +178,7 @@ export default function CGV() {
                       </tr>
                       <tr>
                         <td className="border border-gray-300 px-4 py-2 font-medium">Coordinatrice/Coordinateur</td>
-                        <td className="border border-gray-300 px-4 py-2">Collaborateur de la société Autrement Senior en charge de l\'accompagnement du Bénéficiaire</td>
+                        <td className="border border-gray-300 px-4 py-2">Collaborateur de la société Autrement Senior en charge de l'accompagnement du Bénéficiaire</td>
                       </tr>
                       <tr className="bg-gray-50">
                         <td className="border border-gray-300 px-4 py-2 font-medium">Intervenant</td>
@@ -186,7 +186,7 @@ export default function CGV() {
                       </tr>
                       <tr>
                         <td className="border border-gray-300 px-4 py-2 font-medium">Autrement Senior ou Mandataire</td>
-                        <td className="border border-gray-300 px-4 py-2">La société Autrement Senior SASU responsable du placement de l\'Intervenant chez le Bénéficiaire ainsi que la gestion administrative réalisée pour ce dernier</td>
+                        <td className="border border-gray-300 px-4 py-2">La société Autrement Senior SASU responsable du placement de l'Intervenant chez le Bénéficiaire ainsi que la gestion administrative réalisée pour ce dernier</td>
                       </tr>
                     </tbody>
                   </table>
@@ -195,18 +195,18 @@ export default function CGV() {
 
               {/* Article 3 */}
               <section id="article-3" className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 3 - Conditions et modalités d\'accès aux Services</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 3 - Conditions et modalités d'accès aux Services</h2>
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">3.1 Personnes éligibles</h3>
-                <p className="text-gray-700 mb-2">Toute personne en recherche d\'une aide à domicile peut accéder aux Services :</p>
+                <p className="text-gray-700 mb-2">Toute personne en recherche d'une aide à domicile peut accéder aux Services :</p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li>Les proches ou tuteur(s) de personnes âgées en perte d\'autonomie</li>
+                  <li>Les proches ou tuteur(s) de personnes âgées en perte d'autonomie</li>
                   <li>Les proches ou tuteur(s) de personnes en situation de handicap</li>
                   <li>Toute personne dont la situation requiert une assistance dans les gestes de la vie quotidienne</li>
                   <li>Ces personnes elles-mêmes</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">3.2 Canaux d\'accès</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">3.2 Canaux d'accès</h3>
                 <p className="text-gray-700 mb-3">Les Services peuvent être sollicités via :</p>
                 <div className="bg-gray-50 rounded-lg p-4 space-y-2 mb-6">
                   <p>🌐 <strong>Site internet :</strong> www.autrementsenior.fr</p>
@@ -219,8 +219,8 @@ export default function CGV() {
                   <li><strong>Premier contact</strong> avec Autrement Senior</li>
                   <li><strong>Rendez-vous à domicile</strong> avec un Responsable de Secteur pour :
                     <ul className="list-disc list-inside ml-6 mt-2 space-y-1">
-                      <li>Définir précisément l\'accompagnement nécessaire</li>
-                      <li>Identifier l\'Intervenant le plus adapté aux besoins</li>
+                      <li>Définir précisément l'accompagnement nécessaire</li>
+                      <li>Identifier l'Intervenant le plus adapté aux besoins</li>
                       <li>Établir un devis chiffré</li>
                     </ul>
                   </li>
@@ -254,10 +254,10 @@ export default function CGV() {
               <section id="article-5" className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 5 - Avantages fiscaux</h2>
                 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">5.1 Réduction et crédit d\'impôt</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">5.1 Réduction et crédit d'impôt</h3>
                 <p className="text-gray-700 mb-2">Dans les conditions et limites prévues par le Code général des impôts et la loi de finances en vigueur :</p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li><strong>Avantage fiscal :</strong> 50% des dépenses engagées auprès d\'Autrement Senior</li>
+                  <li><strong>Avantage fiscal :</strong> 50% des dépenses engagées auprès d'Autrement Senior</li>
                   <li><strong>Plafonds :</strong> De 12 000 € à 20 000 € selon les situations</li>
                   <li><strong>Attestation fiscale :</strong> Délivrée chaque année avant le 31 mars</li>
                 </ul>
@@ -265,8 +265,8 @@ export default function CGV() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">5.2 Responsabilité</h3>
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
                   <p className="text-amber-800">
-                    ⚠️ Le bénéficiaire est le seul responsable de l\'utilisation qu\'il fera de ces attestations. 
-                    Autrement Senior ne sera pas responsable en cas de litige avec l\'administration fiscale.
+                    ⚠️ Le bénéficiaire est le seul responsable de l\'utilisation qu'il fera de ces attestations. 
+                    Autrement Senior ne sera pas responsable en cas de litige avec l'administration fiscale.
                   </p>
                 </div>
               </section>
@@ -277,7 +277,7 @@ export default function CGV() {
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">6.1 Obligations légales</h3>
                 <p className="text-gray-700 mb-2">
-                  Dans le cadre d\'un contrat de placement de travailleurs (mode mandataire), le Bénéficiaire est l\'employeur de l\'Intervenant. 
+                  Dans le cadre d'un contrat de placement de travailleurs (mode mandataire), le Bénéficiaire est l'employeur de l'Intervenant. 
                   Il est soumis aux obligations résultant notamment :
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
@@ -286,7 +286,7 @@ export default function CGV() {
                   <li>De la convention collective nationale des salariés du particulier employeur (brochure n°3180 ; IDCC 2111)</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">6.2 Rémunération en cas d\'absence</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">6.2 Rémunération en cas d'absence</h3>
                 <p className="text-gray-700 mb-2">
                   Durant son absence, le Bénéficiaire doit continuer à rémunérer son employé avec le salaire habituel, <strong>excepté en cas de :</strong>
                 </p>
@@ -310,7 +310,7 @@ export default function CGV() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 7 - Conditions de travail et comptabilisation des heures</h2>
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">7.1 Autorité et direction</h3>
-                <p className="text-gray-700 mb-2">Le Bénéficiaire, en sa qualité de particulier-employeur, exerce seul l\'autorité et le pouvoir de direction. Il détermine :</p>
+                <p className="text-gray-700 mb-2">Le Bénéficiaire, en sa qualité de particulier-employeur, exerce seul l'autorité et le pouvoir de direction. Il détermine :</p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
                   <li>La durée et les horaires de travail</li>
                   <li>Le lieu de travail</li>
@@ -320,8 +320,8 @@ export default function CGV() {
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">7.2 Déclaration des heures</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
-                  <li>Les heures d\'arrivée et de départ sont déclarées par l\'Intervenant et enregistrées en déclaratif</li>
-                  <li><strong>Fiche de relevé d\'heures</strong> signée par l\'employeur et l\'Intervenant à fournir <strong>au plus tard le 5 du mois suivant</strong></li>
+                  <li>Les heures d'arrivée et de départ sont déclarées par l'Intervenant et enregistrées en déclaratif</li>
+                  <li><strong>Fiche de relevé d'heures</strong> signée par l'employeur et l'Intervenant à fournir <strong>au plus tard le 5 du mois suivant</strong></li>
                   <li>Le montant facturé et la rémunération seront régularisés le mois suivant</li>
                 </ul>
 
@@ -354,7 +354,7 @@ export default function CGV() {
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
                   <p className="text-amber-800">
                     ⚠️ <strong>Limitations :</strong> Autrement Senior ne pourra reverser que les montants collectés et ne pourra être tenu responsable 
-                    des obligations du Bénéficiaire si celles-ci n\'ont pas été adressées à Autrement Senior.
+                    des obligations du Bénéficiaire si celles-ci n'ont pas été adressées à Autrement Senior.
                   </p>
                 </div>
               </section>
@@ -366,10 +366,10 @@ export default function CGV() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">9.1 Missions incluses</h3>
                 <p className="text-gray-700 mb-2">Autrement Senior est mandatée pour :</p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li><strong>Immatriculer</strong> le Bénéficiaire auprès de l\'URSSAF</li>
-                  <li><strong>Recevoir</strong> les correspondances de l\'URSSAF</li>
+                  <li><strong>Immatriculer</strong> le Bénéficiaire auprès de l'URSSAF</li>
+                  <li><strong>Recevoir</strong> les correspondances de l'URSSAF</li>
                   <li><strong>Éditer</strong> les attestations Pôle Emploi et certificats de travail</li>
-                  <li><strong>Établir</strong> la déclaration nominative trimestrielle auprès de l\'URSSAF</li>
+                  <li><strong>Établir</strong> la déclaration nominative trimestrielle auprès de l'URSSAF</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">9.2 Missions exclues</h3>
@@ -377,13 +377,13 @@ export default function CGV() {
                   <p className="text-amber-800 mb-2">⚠️ <strong>Les missions suivantes relèvent de la prérogative du Bénéficiaire :</strong></p>
                   <ul className="list-disc list-inside space-y-1 text-amber-800">
                     <li>Le choix et la formalisation de la procédure de rupture de contrat de travail</li>
-                    <li>Les formalités liées à la formation de l\'Intervenant</li>
-                    <li>La fourniture du matériel nécessaire pour l\'exécution des tâches</li>
+                    <li>Les formalités liées à la formation de l'Intervenant</li>
+                    <li>La fourniture du matériel nécessaire pour l'exécution des tâches</li>
                   </ul>
                 </div>
 
                 <p className="text-gray-700">
-                  Pour l\'ensemble de ces éléments, consulter la convention collective nationale des salariés du Particulier-Employeur 
+                  Pour l'ensemble de ces éléments, consulter la convention collective nationale des salariés du Particulier-Employeur 
                   (brochure n°3180 ; IDCC 2111).
                 </p>
               </section>
@@ -393,7 +393,7 @@ export default function CGV() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 10 - Contractualisation</h2>
                 
                 <p className="text-gray-700 mb-4">
-                  Conformément à l\'article 6 de l\'Arrêté du 17 mars 2015, Autrement Senior s\'engage à fournir <strong>gratuitement</strong> un devis personnalisé :
+                  Conformément à l'article 6 de l'Arrêté du 17 mars 2015, Autrement Senior s'engage à fournir <strong>gratuitement</strong> un devis personnalisé :
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
                   <li><strong>Obligatoire</strong> pour tous Services dont le prix mensuel est supérieur ou égal à 100 € TTC</li>
@@ -410,7 +410,7 @@ export default function CGV() {
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">11.2 Tarification inclut</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li>L\'offre de Coordination</li>
+                  <li>L'offre de Coordination (PEPS) </li>
                   <li>La taxe sur valeur ajoutée (TVA)</li>
                 </ul>
               </section>
@@ -431,7 +431,7 @@ export default function CGV() {
                     <p className="font-semibold text-green-800 mb-2">Modes favorisés :</p>
                     <ul className="list-disc list-inside space-y-1 text-green-700">
                       <li>Prélèvement automatique</li>
-                      <li>Paiement via l\'avance immédiate</li>
+                      <li>Paiement via l'avance immédiate</li>
                     </ul>
                   </div>
                   <div className="bg-amber-50 p-4 rounded-lg">
@@ -463,7 +463,7 @@ export default function CGV() {
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">13.1 Pénalités</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li><strong>Intérêts de retard :</strong> 10% annuel à compter de la date d\'échéance</li>
+                  <li><strong>Intérêts de retard :</strong> 10% annuel à compter de la date d'échéance</li>
                   <li><strong>Indemnité :</strong> 15% du montant impayé au titre de la clause pénale</li>
                 </ul>
 
@@ -477,7 +477,7 @@ export default function CGV() {
                 <div className="bg-red-50 border-l-4 border-red-500 p-4">
                   <p className="text-red-800">
                     ⚠️ <strong>Attention :</strong> En cas de non-règlement des factures, le Bénéficiaire se rend coupable de travail dissimulé 
-                    et s\'expose à des poursuites judiciaires.
+                    et s'expose à des poursuites judiciaires.
                   </p>
                 </div>
               </section>
@@ -488,14 +488,14 @@ export default function CGV() {
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">14.1 Délai</h3>
                 <p className="text-gray-700 mb-4">
-                  Conformément à l\'article L.121-20 du Code de la consommation, le Bénéficiaire dispose de <strong>14 jours francs</strong> 
+                  Conformément à l'article L.121-20 du Code de la consommation, le Bénéficiaire dispose de <strong>14 jours francs</strong> 
                   pour exercer son droit de rétractation sans justification ni pénalités.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">14.2 Point de départ</h3>
-                <p className="text-gray-700 mb-4">Le délai court à compter de l\'acceptation de l\'offre pour les prestations de Services.</p>
+                <p className="text-gray-700 mb-4">Le délai court à compter de l'acceptation de l'offre pour les prestations de Services.</p>
 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">14.3 Modalités d\'exercice</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">14.3 Modalités d'exercice</h3>
                 <p className="text-gray-700 mb-2">Par lettre recommandée avec accusé de réception adressée à :</p>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <p className="font-semibold">Autrement Senior SASU</p>
@@ -505,8 +505,8 @@ export default function CGV() {
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">14.4 Prestations commencées</h3>
                 <p className="text-gray-700">
-                  Si le Bénéficiaire demande expressément à voir la prestation commencer avant l\'expiration du délai de rétractation, 
-                  il reste redevable du coût des prestations réalisées jusqu\'à la réception de sa rétractation.
+                  Si le Bénéficiaire demande expressément à voir la prestation commencer avant l'expiration du délai de rétractation, 
+                  il reste redevable du coût des prestations réalisées jusqu'à la réception de sa rétractation.
                 </p>
               </section>
 
@@ -516,7 +516,7 @@ export default function CGV() {
                 
                 <p className="text-gray-700">
                   Le Bénéficiaire déclare avoir souscrit une assurance <strong>« multirisques habitation »</strong>, incluant la garantie responsabilité civile familiale. 
-                  Cette assurance couvre notamment les responsabilités civiles de l\'Intervenant dans l\'exercice de ses fonctions.
+                  Cette assurance couvre notamment les responsabilités civiles de l'Intervenant dans l'exercice de ses fonctions.
                 </p>
               </section>
 
@@ -524,38 +524,32 @@ export default function CGV() {
               <section id="article-16" className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 16 - Résiliation du mandat</h2>
                 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">16.1 Fin naturelle</h3>
-                <p className="text-gray-700 mb-6">
-                  Le contrat de mandat prend fin naturellement dès lors qu\'il n\'y a plus aucun contrat de travail en cours 
-                  et que le client ne sollicite pas Autrement Senior pour de nouveaux candidats.
-                </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">16.2 Types de résiliation</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">16.1 Types de résiliation</h3>
                 
                 <div className="space-y-4 mb-6">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">Résiliation d\'un commun accord</h4>
-                    <p className="text-gray-700">Les parties peuvent décider d\'un commun accord de mettre fin au contrat à la date de leur choix.</p>
+                    <h4 className="font-semibold text-gray-800 mb-2">Résiliation d'un commun accord</h4>
+                    <p className="text-gray-700">Les parties peuvent décider d'un commun accord de mettre fin au contrat à la date de leur choix.</p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-2">Résiliation non fautive</h4>
                     <p className="text-gray-700">
-                      L\'une ou l\'autre des parties peut rompre le contrat par lettre recommandée avec accusé réception 
-                      en respectant un <strong>délai de prévenance d\'1 mois</strong>.
+                      L'une ou l'autre des parties peut rompre le contrat par lettre recommandée avec accusé réception 
+                      en respectant un <strong>délai de prévenance d'1 mois</strong>.
                     </p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-2">Résiliation fautive</h4>
                     <p className="text-gray-700">
-                      En cas d\'inexécution par l\'autre partie de l\'une des obligations résultant du contrat (notamment en cas d\'impayé). 
+                      En cas d'inexécution par l'autre partie de l'une des obligations résultant du contrat (notamment en cas d'impayé). 
                       Cette résiliation prend effet à compter de la première présentation de la lettre recommandée avec accusé de réception.
                     </p>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">16.3 Indemnité de rupture</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">16.2 Indemnité de rupture</h3>
                 <p className="text-gray-700 mb-2">En cas de rupture du contrat de mandat par le client dans les cas suivants :</p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
                   <li>Poursuite du contrat de travail entre le client et l\'Intervenant présenté par Autrement Senior</li>
@@ -571,10 +565,10 @@ export default function CGV() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Article 17 - Réclamations et litiges</h2>
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">17.1 Procédure de réclamation</h3>
-                <p className="text-gray-700 mb-2">En cas de contestation d\'un des Services :</p>
+                <p className="text-gray-700 mb-2">En cas de contestation d'un des Services :</p>
                 <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-6">
                   <li>Régler la facture/note de débit</li>
-                  <li>Faire parvenir par écrit l\'objet de sa réclamation dans les meilleurs délais</li>
+                  <li>Faire parvenir par écrit l'objet de sa réclamation dans les meilleurs délais</li>
                 </ol>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">17.2 Recours</h3>
@@ -586,7 +580,7 @@ export default function CGV() {
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">17.3 Médiation</h3>
                 <p className="text-gray-700 mb-6">
-                  En cas de litige non résolu, Autrement Senior s\'engage à proposer une solution de médiation 
+                  En cas de litige non résolu, Autrement Senior s'engage à proposer une solution de médiation 
                   conformément aux articles L.616-1 et R.616-1 du code de la consommation.
                 </p>
 
@@ -597,8 +591,8 @@ export default function CGV() {
 
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
                   <p className="text-amber-800">
-                    ⚠️ <strong>Limitation de responsabilité :</strong> La responsabilité d\'Autrement Senior ne pourra être engagée 
-                    qu\'à raison d\'une faute commise dans l\'exécution de sa mission de mandataire.
+                    ⚠️ <strong>Limitation de responsabilité :</strong> La responsabilité d'Autrement Senior ne pourra être engagée 
+                    qu'à raison d'une faute commise dans l'exécution de sa mission de mandataire.
                   </p>
                 </div>
               </section>
@@ -622,8 +616,8 @@ export default function CGV() {
                   <li><strong>Données financières :</strong> RIB, aides financières</li>
                   <li><strong>Vie personnelle :</strong> Habitudes de vie, besoins, services attendus, disponibilités</li>
                   <li><strong>Communications :</strong> Emails, messagerie WhatsApp</li>
-                  <li><strong>Données sensibles :</strong> État de santé, rendez-vous médicaux, soins à prodiguer</li>
-                  <li><strong>Données relatives aux proches :</strong> Nom, prénom, pièce d\'identité, lien, coordonnées</li>
+                  <li><strong>Données sensibles :</strong> État de santé, rendez-vous médicaux, soins à prodiguer, ordonnances</li>
+                  <li><strong>Données relatives aux proches :</strong> Nom, prénom, pièce d'identité, lien, coordonnées</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">18.3 Finalités du traitement</h3>
@@ -637,10 +631,11 @@ export default function CGV() {
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">18.4 Destinataires</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li>Services internes d\'Autrement Senior</li>
+                  <li>Services internes d'Autrement Senior</li>
                   <li>Intervenant employé du Bénéficiaire et proches aidants</li>
                   <li>Partenaires tiers (avec consentement)</li>
-                  <li>Sous-traitants d\'Autrement Senior</li>
+                  <li>Médecin, IDEL, Profs. de santé (avec consentement)</li>
+                  <li>Sous-traitants d'Autrement Senior</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">18.5 Durée de conservation</h3>
@@ -648,7 +643,7 @@ export default function CGV() {
                   <li><strong>Relation Bénéficiaire/Autrement Senior :</strong> 2 ans à compter du dernier contact</li>
                   <li><strong>Prospection commerciale :</strong> 3 ans à compter de la fin de la relation commerciale</li>
                   <li><strong>Statistiques commerciales :</strong> Durée indéterminée de manière anonymisée</li>
-                  <li><strong>Enregistrements d\'appels :</strong> Maximum 6 mois</li>
+                  <li><strong>Enregistrements d'appels :</strong> Maximum 6 mois</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">18.6 Droits du Bénéficiaire</h3>
@@ -687,19 +682,19 @@ export default function CGV() {
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">19.1 Enquête de satisfaction</h3>
                 <p className="text-gray-700 mb-6">
-                  Autrement Senior s\'autorise à procéder régulièrement à des enquêtes de satisfaction et pourra contacter 
+                  Autrement Senior s'autorise à procéder régulièrement à des enquêtes de satisfaction et pourra contacter 
                   le Bénéficiaire par courrier, mail ou téléphone.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">19.2 Supports de communication</h3>
                 <p className="text-gray-700 mb-6">
                   Autrement Senior peut mettre à disposition des sites internet, blogs, forums, pages Facebook, applications mobiles. 
-                  Le Bénéficiaire peut s\'opposer expressément à ces communications par courrier recommandé avec accusé de réception.
+                  Le Bénéficiaire peut s'opposer expressément à ces communications par courrier recommandé avec accusé de réception.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">19.3 Nullité partielle</h3>
                 <p className="text-gray-700 mb-6">
-                  Si l\'une des dispositions des présentes était considérée comme nulle, cette disposition serait considérée comme non écrite, 
+                  Si l'une des dispositions des présentes était considérée comme nulle, cette disposition serait considérée comme non écrite, 
                   toutes les autres dispositions conservant force obligatoire.
                 </p>
 
@@ -712,12 +707,12 @@ export default function CGV() {
 
               {/* Annexe */}
               <section id="annexe" className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Annexe - Notice d\'information sur la personne de confiance</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Annexe - Notice d'information sur la personne de confiance</h2>
                 
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Qu\'est-ce qu\'une personne de confiance ?</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Qu'est-ce qu'une personne de confiance ?</h3>
                 <p className="text-gray-700 mb-6">
                   La loi donne le droit à toute personne majeure prise en charge dans un établissement ou un service social ou médico-social 
-                  de désigner une personne de confiance qui l\'accompagne dans ses démarches afin de l\'aider dans ses décisions.
+                  de désigner une personne de confiance qui l'accompagne dans ses démarches afin de l'aider dans ses décisions.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Quel est son rôle ?</h3>
@@ -725,7 +720,7 @@ export default function CGV() {
                 <h4 className="text-lg font-semibold text-gray-800 mb-2">Accompagnement et présence</h4>
                 <p className="text-gray-700 mb-2">La personne de confiance peut :</p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
-                  <li>Être présente à l\'entretien prévu lors de la conclusion du contrat de séjour</li>
+                  <li>Être présente à l'entretien prévu lors de la conclusion du contrat de séjour</li>
                   <li>Vous accompagner dans vos démarches liées à votre prise en charge médico-sociale</li>
                   <li>Assister aux entretiens médicaux dans le cadre de votre prise en charge</li>
                 </ul>
@@ -744,7 +739,7 @@ export default function CGV() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Qui peut la désigner ?</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
                   <li>Toute personne majeure prise en charge par une structure sociale ou médico-sociale</li>
-                  <li><strong>C\'est un droit, pas une obligation</strong></li>
+                  <li><strong>C'est un droit, pas une obligation</strong></li>
                   <li>Pour les personnes sous protection judiciaire : autorisation du conseil de famille ou du juge des tutelles requise</li>
                 </ul>
 
@@ -758,7 +753,7 @@ export default function CGV() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Quand la désigner ?</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
                   <li>À tout moment</li>
-                  <li>Lors du début d\'une prise en charge, il vous sera proposé de désigner une personne de confiance</li>
+                  <li>Lors du début d'une prise en charge, il vous sera proposé de désigner une personne de confiance</li>
                   <li>La désignation est valable sans limitation de durée (sauf si vous spécifiez une durée plus limitée)</li>
                 </ul>
 
@@ -772,7 +767,7 @@ export default function CGV() {
 
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Comment faire connaître ce document ?</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li>Informer la structure et l\'équipe de prise en charge</li>
+                  <li>Informer la structure et l'équipe de prise en charge</li>
                   <li>Donner une copie à la structure</li>
                   <li>Tenir vos proches informés</li>
                   <li>Conserver le document avec vous</li>

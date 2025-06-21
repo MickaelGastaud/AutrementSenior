@@ -119,10 +119,10 @@ export default function Home() {
                 Découvrir notre solution
               </Link>
               <Link
-                href="/contact"
+                href="/valeurs"
                 className="bg-accent text-gray-800 px-8 py-4 rounded-lg hover:bg-accent-dark transition-all hover:scale-105 text-lg font-medium text-center inline-block"
               >
-                Nous contacter
+                Nos Valeurs
               </Link>
             </motion.div>
           </div>

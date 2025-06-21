@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/solution#formation" className="text-gray-400 hover:text-accent transition-colors text-sm">
-                  Formation des aidants
+                  Avance Immédiate URSAAF
                 </Link>
               </li>
             </ul>
@@ -71,30 +71,31 @@ export default function Footer() {
 
           {/* Colonne 3 : Informations */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Informations</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/actualites" className="text-gray-400 hover:text-accent transition-colors text-sm">
-                  Actualités
-                </Link>
-              </li>
-              <li>
-                <Link href="/presse" className="text-gray-400 hover:text-accent transition-colors text-sm">
-                  Presse
-                </Link>
-              </li>
-              <li>
-                <Link href="/franchise" className="text-gray-400 hover:text-accent transition-colors text-sm">
-                  Ouvrez votre agence
-                </Link>
-              </li>
-              <li>
-                <button className="text-gray-400 hover:text-accent transition-colors text-sm text-left">
-                  Newsletter
-                </button>
-              </li>
-            </ul>
-          </div>
+  <h3 className="text-lg font-semibold mb-4 text-white">Informations</h3>
+  <ul className="space-y-2">
+    <li>
+      <Link href="/actualites" className="text-gray-400 hover:text-accent transition-colors text-sm">
+        Actualités
+      </Link>
+    </li>
+    <li>
+      <Link href="/presse" className="text-gray-400 hover:text-accent transition-colors text-sm">
+        Presse
+      </Link>
+    </li>
+    <li>
+      <Link href="/franchise" className="text-gray-400 hover:text-accent transition-colors text-sm">
+        Ouvrez votre agence
+      </Link>
+    </li>
+    <li>
+      <Link href="/valeurs" className="text-gray-400 hover:text-accent transition-colors text-sm">
+        Nos Valeurs
+      </Link>
+    </li>
+  </ul>
+</div>
+
 
           {/* Colonne 4 : Contact */}
           <div>
@@ -152,7 +153,7 @@ export default function Footer() {
               </Link>
               <span className="text-gray-600">|</span>
               <Link href="/legal/cgv" className="text-gray-400 hover:text-accent transition-colors">
-                CGV
+                CGS
               </Link>
               <span className="text-gray-600">|</span>
               <Link href="/legal/confidentialite" className="text-gray-400 hover:text-accent transition-colors">
