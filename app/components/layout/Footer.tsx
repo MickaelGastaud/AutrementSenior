@@ -62,7 +62,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/solution#formation" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                <Link href="/avance-immediate" className="text-gray-400 hover:text-accent transition-colors text-sm">
                   Avance Immédiate URSAAF
                 </Link>
               </li>
