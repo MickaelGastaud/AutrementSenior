@@ -5,13 +5,11 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      {/* Section principale du footer */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Colonne 1 : À propos */}
           <div>
-            {/* Logo */}
             <Link href="/" className="inline-block mb-4 group">
               <div className="flex items-center gap-2">
                 <div className="relative w-10 h-10">
@@ -29,13 +27,12 @@ export default function Footer() {
                 </div>
               </div>
             </Link>
-            
+
             <p className="text-gray-400 mb-4 text-sm">
               Care Management et accompagnement personnalisé pour vos proches âgés. 
               Un service bienveillant et professionnel.
             </p>
-            
-            {/* Informations légales */}
+
             <div className="space-y-1 text-sm text-gray-400">
               <p><strong className="text-gray-300">N° SAP :</strong> SAP911830974</p>
               <p><strong className="text-gray-300">Marque déposée :</strong> N°5013954</p>
@@ -71,31 +68,30 @@ export default function Footer() {
 
           {/* Colonne 3 : Informations */}
           <div>
-  <h3 className="text-lg font-semibold mb-4 text-white">Informations</h3>
-  <ul className="space-y-2">
-    <li>
-      <Link href="/actualites" className="text-gray-400 hover:text-accent transition-colors text-sm">
-        Actualités
-      </Link>
-    </li>
-    <li>
-      <Link href="/presse" className="text-gray-400 hover:text-accent transition-colors text-sm">
-        Presse
-      </Link>
-    </li>
-    <li>
-      <Link href="/franchise" className="text-gray-400 hover:text-accent transition-colors text-sm">
-        Ouvrez votre agence
-      </Link>
-    </li>
-    <li>
-      <Link href="/valeurs" className="text-gray-400 hover:text-accent transition-colors text-sm">
-        Nos Valeurs
-      </Link>
-    </li>
-  </ul>
-</div>
-
+            <h3 className="text-lg font-semibold mb-4 text-white">Informations</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/actualites" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                  Actualités
+                </Link>
+              </li>
+              <li>
+                <Link href="/presse" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                  Presse
+                </Link>
+              </li>
+              <li>
+                <Link href="/franchise" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                  Ouvrez votre agence
+                </Link>
+              </li>
+              <li>
+                <Link href="/valeurs" className="text-gray-400 hover:text-accent transition-colors text-sm">
+                  Nos Valeurs
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Colonne 4 : Contact */}
           <div>
@@ -107,14 +103,14 @@ export default function Footer() {
                 </svg>
                 <span>06.49.60.41.99</span>
               </a>
-              
+
               <a href="mailto:contact@autrement-senior.fr" className="flex items-start gap-2 text-gray-400 hover:text-accent transition-colors group">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span>expertise@autrementsenior.fr</span>
               </a>
-              
+
               <div className="flex items-start gap-2 text-gray-400">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -123,8 +119,7 @@ export default function Footer() {
                 <span>Montpellier et Région Occitanie</span>
               </div>
             </div>
-            
-            {/* Réseaux sociaux */}
+
             <div className="mt-6">
               <h4 className="text-sm font-semibold mb-3">Suivez-nous</h4>
               <div className="flex gap-3">
@@ -139,14 +134,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Barre du bas avec liens légaux */}
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-400">
               © {currentYear} Autrement Senior. Tous droits réservés.
             </p>
-            
+
             <nav className="flex flex-wrap justify-center gap-4 text-sm">
               <Link href="/legal/engagements" className="text-gray-400 hover:text-accent transition-colors">
                 Nos engagements
