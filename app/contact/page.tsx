@@ -90,9 +90,6 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // ========== REMPLACER CETTE PARTIE PAR VOTRE LOGIQUE D'ENVOI ==========
-      // Exemple avec API Route Next.js :
-      /*
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -100,13 +97,10 @@ export default function Contact() {
         },
         body: JSON.stringify(formData),
       });
-
+      
       if (!response.ok) {
-        throw new Error('Erreur lors de l\'envoi');
+        throw new Error("Erreur lors de l'envoi");
       }
-      */
-
-      // Simulation d'envoi (à supprimer en production)
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setIsSubmitted(true);
