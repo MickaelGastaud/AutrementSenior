@@ -428,12 +428,13 @@ export default function Home() {
 
                   {/* Header avec image */}
                   <div className="relative h-64 md:h-80">
-                    <Image
-                      src="/images/podcast-autrementsenior.jpg"
-                      alt="Podcast Autrement Senior"
-                      fill
-                      className="object-cover"
-                    />
+                  <Image
+  src="/images/podcast-autrementsenior.jpg"
+  alt="Test"
+  width={600}
+  height={400}
+/>
+
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     
                     {/* Badge Nouveau */}
