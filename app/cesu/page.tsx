@@ -2,7 +2,52 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Head from 'next/head';
+import Script from 'next/script';
 import { useState } from 'react';
+
+<Head>
+<title>Rejoignez Autrement Senior en CESU | Auxiliaires de vie</title>
+<meta name="description" content="Devenez auxiliaire de vie en CESU avec Autrement Senior : flexibilité, accompagnement personnalisé, missions proches de chez vous et valeurs humaines." />
+<meta name="keywords" content="CESU, auxiliaire de vie, emploi senior, aide à domicile, particulier employeur, Autrement Senior" />
+<meta property="og:title" content="Rejoignez Autrement Senior en CESU | Auxiliaires de vie" />
+<meta property="og:description" content="Rejoignez une équipe humaine et engagée. Missions proches de chez vous, accompagnement personnalisé et valeurs fortes." />
+<meta property="og:url" content="https://autrement-senior.fr/cesu" />
+<meta property="og:site_name" content="Autrement Senior" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://autrementsenior.fr/images/cesu-og.jpg" />
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Auxiliaire de vie en CESU",
+      "description": "Rejoignez Autrement Senior comme auxiliaire de vie en CESU. Missions variées, proximité, flexibilité et accompagnement personnalisé.",
+      "datePosted": "2025-06-01",
+      "employmentType": "PART_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Autrement Senior",
+        "sameAs": "https://autrementsenior.fr"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montpellier",
+          "addressRegion": "Occitanie",
+          "addressCountry": "FR"
+        }
+      },
+      "applicantLocationRequirements": {
+        "@type": "Country",
+        "name": "France"
+      }
+    })
+  }}
+/>
+</Head>
 
 export default function CESU() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -47,6 +92,7 @@ export default function CESU() {
   };
 
   return (
+
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">

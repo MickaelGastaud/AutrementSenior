@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useState } from 'react';
+
 
 export default function AvanceImmediate() {
   const [activeTab, setActiveTab] = useState('classique');
@@ -54,6 +55,39 @@ export default function AvanceImmediate() {
       description: "Dès le mois suivant, profitez de la réduction sur vos factures"
     }
   ];
+
+
+  <Head>
+  <title>Avance Immédiate Crédit d'Impôt - Aide à Domicile | Autrement Senior</title>
+  <meta name="description" content="Activez dès aujourd'hui l'avance immédiate de crédit d'impôt avec Autrement Senior et payez 50% de vos factures d'aide à domicile. Service simple, rapide, gratuit." />
+  <meta name="keywords" content="avance immédiate, crédit d'impôt, aide à domicile, Autrement Senior, service à la personne, réduction impôt urssaf" />
+  <meta property="og:title" content="Avance Immédiate Crédit d'Impôt | Autrement Senior" />
+  <meta property="og:description" content="Ne payez que 50% de vos factures d'aide à domicile grâce à l'avance immédiate mise en place par l'Urssaf. Service simple et gratuit." />
+  <meta property="og:url" content="https://autrementsenior.fr/avance-immediate" />
+  <meta property="og:site_name" content="Autrement Senior" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://autrementsenior.fr/images/avance-immediate-og.jpg" />
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Avance Immédiate Crédit d'Impôt",
+        "provider": {
+          "@type": "Organization",
+          "name": "Autrement Senior",
+          "url": "https://autrementsenior.fr"
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "France"
+        },
+        "description": "Activez dès aujourd'hui l'avance immédiate de crédit d'impôt avec Autrement Senior et payez 50% de vos factures d'aide à domicile ou de Coordination"
+      })
+    }}
+  />
+</Head>
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">

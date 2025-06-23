@@ -16,7 +16,7 @@ export default function OuvrezVotreAgence() {
     "@type": "FranchiseOpportunity",
     "name": "Licence de marque Autrement Senior - Care Management",
     "description": "Devenez Care Manager avec Autrement Senior. Licence de marque pour professionnels médico-sociaux. Lancement 2026.",
-    "url": "https://autrementsenior.fr/ouvrez-votre-agence",
+    "url": "https://autrementsenior.fr/franchise",
     "franchiser": {
       "@type": "Organization",
       "name": "Autrement Senior",
@@ -125,9 +125,9 @@ export default function OuvrezVotreAgence() {
         <meta property="og:title" content="Devenez pionnier du Care Management en France" />
         <meta property="og:description" content="Autrement Senior recrute ses futurs licenciés. Une opportunité unique pour les professionnels médico-sociaux." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://autrementsenior.fr/ouvrez-votre-agence" />
+        <meta property="og:url" content="https://autrementsenior.fr/franchise" />
         
-        <link rel="canonical" href="https://autrementsenior.fr/ouvrez-votre-agence" />
+        <link rel="canonical" href="https://autrementsenior.fr/franchise" />
       </Head>
 
       <Script
