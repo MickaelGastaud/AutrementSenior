@@ -429,7 +429,7 @@ export default function Home() {
                   {/* Header avec image */}
                   <div className="relative h-64 md:h-80">
                     <Image
-                      src="/images/podcast-autrement-senior.jpg"
+                      src="/images/podcast-autrement-senior.jpeg"
                       alt="Podcast Autrement Senior"
                       fill
                       className="object-cover"
