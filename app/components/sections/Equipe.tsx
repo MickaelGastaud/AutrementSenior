@@ -38,7 +38,7 @@ export default function Equipe() {
       ],
       initiales: "MG",
       hasVideo: false,
-      photo: null // Pas de photo disponible
+      photo: "/images/mickael-gastaud.jpg"
     },
     {
       id: 3,
