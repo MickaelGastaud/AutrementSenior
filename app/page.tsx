@@ -427,15 +427,15 @@ export default function Home() {
                   </button>
 
                   {/* Header avec image */}
-                  <div className="relative h-64 md:h-80">
-                  <Image
-                  src="/images/podcast-autrementsenior.jpg"
-                  alt="Podcast Autrement Senior"
-                  layout="responsive"
-                  width={600}
-                  height={400}
-                  className="object-cover"
-                  />
+                  <div className="relative w-full h-64 md:h-80">
+  <Image
+    src="/images/podcast-autrementsenior.jpg"
+    alt="Podcast Autrement Senior"
+    fill
+    priority
+    className="object-cover rounded-t-3xl"
+  />
+
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     
                     {/* Badge Nouveau */}
