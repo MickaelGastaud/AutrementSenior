@@ -7,6 +7,11 @@ const redirectsMapping = [
       permanent: true
     },
     {
+      source: '/maintien-au-domicile-senior-montpellier',
+      destination: '/solution',
+      permanent: true
+    },
+    {
       source: '/presse-autrement-senior',
       destination: '/presse',
       permanent: true
@@ -14,6 +19,16 @@ const redirectsMapping = [
     {
       source: '/notre-podcast-aidants',
       destination: '/podcast',
+      permanent: true
+    },
+    {
+      source: '/partenaires',
+      destination: '/contact',
+      permanent: true
+    },
+    {
+      source: '/arret-travail-auxiliaire-de-vie/',
+      destination: '/cesu',
       permanent: true
     },
     {
