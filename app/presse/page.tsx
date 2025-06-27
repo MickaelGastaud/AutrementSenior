@@ -2,7 +2,108 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
+import Head from 'next/head';
 import Link from 'next/link';
+
+<Head>
+<title>Presse et Médias - Autrement Senior | Care Management Montpellier</title>
+<meta name="description" content="Découvrez Autrement Senior dans les médias : reportages France 3, interviews France Bleu, articles Midi Libre. Notre approche innovante du Care Management fait parler d'elle." />
+<meta name="keywords" content="presse Autrement Senior, médias care management, reportage France 3, interview France Bleu, article Midi Libre, actualités seniors Montpellier" />
+
+{/* Open Graph */}
+<meta property="og:title" content="Presse et Médias - Autrement Senior | Care Management" />
+<meta property="og:description" content="Retrouvez tous nos passages médias : reportages TV, interviews radio et articles de presse sur notre approche innovante du Care Management." />
+<meta property="og:url" content="https://autrementsenior.fr/presse" />
+<meta property="og:site_name" content="Autrement Senior" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://autrementsenior.fr/images/presse-og.jpg" />
+
+{/* Twitter Card */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Presse et Médias - Autrement Senior" />
+<meta name="twitter:description" content="Découvrez nos passages dans les médias : France 3, France Bleu, Midi Libre..." />
+<meta name="twitter:image" content="https://autrementsenior.fr/images/presse-og.jpg" />
+
+{/* Autres balises */}
+<link rel="canonical" href="https://autrementsenior.fr/presse" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Autrement Senior" />
+
+{/* Schema.org pour la page Presse */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Presse et Médias - Autrement Senior",
+      "description": "Retrouvez tous les passages médias d'Autrement Senior : reportages, interviews et articles de presse",
+      "url": "https://autrementsenior.fr/presse",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "VideoObject",
+            "position": 1,
+            "name": "Interview France Bleu Hérault",
+            "description": "Caroline Gastaud présente Autrement Senior sur France Bleu Hérault",
+            "thumbnailUrl": "https://img.youtube.com/vi/U3moi5VrEu0/maxresdefault.jpg",
+            "uploadDate": "2024-03-01",
+            "publisher": {
+              "@type": "Organization",
+              "name": "France Bleu"
+            }
+          },
+          {
+            "@type": "VideoObject",
+            "position": 2,
+            "name": "Reportage France 3 Occitanie",
+            "description": "Découvrez notre approche du Care Management dans ce reportage France 3",
+            "thumbnailUrl": "https://img.youtube.com/vi/8nLFeeKKn4k/maxresdefault.jpg",
+            "uploadDate": "2025-03-01",
+            "publisher": {
+              "@type": "Organization",
+              "name": "France 3"
+            }
+          },
+          {
+            "@type": "NewsArticle",
+            "position": 3,
+            "headline": "Article Midi Libre",
+            "description": "Le Midi Libre met en lumière notre approche innovante de l'accompagnement des seniors",
+            "datePublished": "2022-12-01",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Midi Libre"
+            }
+          },
+          {
+            "@type": "NewsArticle",
+            "position": 4,
+            "headline": "Article ActuSoins",
+            "description": "ActuSoins présente notre méthode PEPS et son impact sur le bien-être des personnes âgées",
+            "datePublished": "2023-04-01",
+            "publisher": {
+              "@type": "Organization",
+              "name": "ActuSoins"
+            }
+          }
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Autrement Senior",
+        "url": "https://autrementsenior.fr",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://autrementsenior.fr/images/logo-autrement-senior.png"
+        }
+      }
+    })
+  }}
+/>
+</Head>
 
 export default function Presse() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -14,7 +115,7 @@ export default function Presse() {
       description: 'Caroline Gastaud présente Autrement Senior sur France Bleu Hérault',
       thumbnail: 'https://img.youtube.com/vi/U3moi5VrEu0/maxresdefault.jpg',
       media: 'France Bleu',
-      date: 'Décembre 2023',
+      date: 'Mars 2024',
       type: 'Interview Radio'
     },
     {
@@ -23,7 +124,7 @@ export default function Presse() {
       description: 'Découvrez notre approche du Care Management dans ce reportage France 3',
       thumbnail: 'https://img.youtube.com/vi/8nLFeeKKn4k/maxresdefault.jpg',
       media: 'France 3',
-      date: 'Novembre 2023',
+      date: 'Mars 2025',
       type: 'Reportage TV'
     }
   ];
@@ -32,17 +133,17 @@ export default function Presse() {
     {
       title: 'Article Midi Libre',
       description: 'Le Midi Libre met en lumière notre approche innovante de l\'accompagnement des seniors',
-      image: 'https://autrementsenior.fr/wp-content/uploads/2023/12/midilibre.png',
+      image: '/images/midilibre-autrementsenior.jpg',
       media: 'Midi Libre',
-      date: 'Décembre 2023',
+      date: 'Décembre 2022',
       type: 'Article de Presse'
     },
     {
       title: 'Article ActuSoins',
       description: 'ActuSoins présente notre méthode PEPS et son impact sur le bien-être des personnes âgées',
-      image: 'https://autrementsenior.fr/wp-content/uploads/2023/12/actusoins.png',
+      image: '/images/actusoins-autrementsenior.jpg',
       media: 'ActuSoins',
-      date: 'Décembre 2023',
+      date: 'Avril 2023',
       type: 'Article Spécialisé'
     }
   ];
