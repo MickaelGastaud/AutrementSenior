@@ -7,6 +7,11 @@ const redirectsMapping = [
       permanent: true
     },
     {
+      source: '/autrement-senior-parkinson/',
+      destination: '/solution',
+      permanent: true
+    },
+    {
       source: '/maintien-au-domicile-senior-montpellier',
       destination: '/solution',
       permanent: true
