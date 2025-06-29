@@ -15,7 +15,7 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   
   const text1 = "Le Care Management pour";
   const text2 = "vos proches âgés";
@@ -58,29 +58,20 @@ export default function Home() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-
-    // Fonctions de mise à jour
-    const updateTime = () => {
-      setCurrentTime(audio.currentTime);
-    };
-    
+  
+    const updateTime = () => setCurrentTime(audio.currentTime);
     const updateDuration = () => {
       if (audio.duration && !isNaN(audio.duration)) {
         setDuration(audio.duration);
       }
     };
-
-    const handleError = (e: Event) => {
-      console.error('Erreur audio:', e);
-    };
-
-    // Ajout des écouteurs d'événements
+    const handleError = (e: Event) => console.error('Erreur audio:', e);
+  
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('durationchange', updateDuration);
     audio.addEventListener('error', handleError);
-    
-    // Nettoyage
+  
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
@@ -90,24 +81,27 @@ export default function Home() {
   }, []);
 
   const togglePlay = async () => {
-    if (!audioRef.current) return;
-    
+    const audio = audioRef.current;
+    if (!audio) return;
+  
     try {
       if (isPlaying) {
-        audioRef.current.pause();
+        audio.pause();
         setIsPlaying(false);
       } else {
-        // Attendre que le fichier soit prêt
-        if (audioRef.current.readyState >= 2) {
-          await audioRef.current.play();
+        if (audio.readyState >= 2) {
+          await audio.play();
           setIsPlaying(true);
         } else {
-          // Charger le fichier d'abord
-          audioRef.current.load();
-          audioRef.current.addEventListener('canplay', async () => {
-            await audioRef.current.play();
-            setIsPlaying(true);
-          }, { once: true });
+          audio.load();
+          audio.addEventListener(
+            'canplay',
+            async () => {
+              await audio.play();
+              setIsPlaying(true);
+            },
+            { once: true }
+          );
         }
       }
     } catch (error) {
@@ -124,10 +118,11 @@ export default function Home() {
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newTime = parseFloat(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
-    }
+    const audio = audioRef.current;
+    if (!audio) return;
+  
+    audio.currentTime = newTime;
+    setCurrentTime(newTime);
   };
 
   return (
@@ -525,13 +520,14 @@ export default function Home() {
                 <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden">
                   {/* Bouton fermer */}
                   <button
-                    onClick={() => {
-                      setShowPopup(false);
-                      if (audioRef.current) {
-                        audioRef.current.pause();
-                        setIsPlaying(false);
-                      }
-                    }}
+onClick={() => {
+  setShowPopup(false);
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  audio.pause();
+  setIsPlaying(false);
+}}
                     className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg z-10 transition-all"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -649,24 +645,17 @@ export default function Home() {
 
                   {/* Lecteur audio amélioré avec gestion d'erreurs */}
                   <audio
-                    ref={audioRef}
-                    src="/podcast/Les 5 difficultés que rencontrent le plus souvent les aidants familiaux.mp3"
-                    onEnded={() => setIsPlaying(false)}
-                    onError={(e) => {
-                      console.error('Erreur de chargement audio:', e);
-                      alert('Erreur de chargement du podcast. Vérifiez le chemin du fichier.');
-                    }}
-                    onLoadedMetadata={(e) => {
-                      const audio = e.currentTarget;
-                      setDuration(audio.duration);
-                      console.log('Durée du podcast:', audio.duration);
-                    }}
-                    onTimeUpdate={(e) => {
-                      const audio = e.currentTarget;
-                      setCurrentTime(audio.currentTime);
-                    }}
-                    preload="metadata"
-                  />
+  ref={audioRef}
+  src="/podcast/Les 5 difficultés que rencontrent le plus souvent les aidants familiaux.mp3"
+  onEnded={() => setIsPlaying(false)}
+  onError={(e) => {
+    console.error('Erreur de chargement audio:', e);
+    alert('Erreur de chargement du podcast.');
+  }}
+  onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+  onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+  preload="metadata"
+/>
                 </div>
               </motion.div>
             </>
