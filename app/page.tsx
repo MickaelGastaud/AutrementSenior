@@ -99,25 +99,91 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Autrement Senior - Care Management pour vos proches âgés | Montpellier</title>
-        <meta name="description" content="Solution innovante de Care Management pour accompagner vos proches âgés. Coordination médicale, aide à domicile et soutien aux aidants familiaux dans l'Hérault." />
-        <meta name="keywords" content="care management, aide personne âgée, maintien à domicile, aidants familiaux, coordination médicale, Montpellier, Hérault" />
+        <title>Autrement Senior - Care Management pour seniors à Montpellier | Aide et Accompagnement</title>
+        <meta name="description" content="Autrement Senior propose un service de Care Management innovant pour vos proches âgés à Montpellier et dans l'Hérault. Coordination médicale, aide à domicile personnalisée et soutien aux aidants familiaux. Solution clé en main pour rester chez soi en toute sérénité." />
+        <meta name="keywords" content="care management, aide personne âgée, maintien à domicile, aidants familiaux, coordination médicale, Montpellier, Hérault, accompagnement seniors, autrement senior" />
         
-        {/* Open Graph */}
-        <meta property="og:title" content="Autrement Senior - Le Care Management pour vos proches" />
-        <meta property="og:description" content="La solution clé en main pour permettre à vos proches de rester chez eux en toute sérénité" />
+        {/* Open Graph - Optimisé */}
+        <meta property="og:title" content="Autrement Senior - Care Management pour seniors à Montpellier" />
+        <meta property="og:description" content="Service de Care Management innovant pour accompagner vos proches âgés. Coordination médicale, aide à domicile et soutien aux aidants dans l'Hérault." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://autrementsenior.fr" />
-        <meta property="og:image" content="https://autrementsenior.fr/images/autrement-senior.jpg" />
+        <meta property="og:url" content="https://www.autrementsenior.fr" />
+        <meta property="og:image" content="https://www.autrementsenior.fr/images/logo.png" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="Autrement Senior" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Autrement Senior - Care Management pour seniors" />
-        <meta name="twitter:description" content="Solution innovante pour accompagner vos proches âgés" />
+        <meta name="twitter:title" content="Autrement Senior - Care Management pour seniors à Montpellier" />
+        <meta name="twitter:description" content="Solution innovante de Care Management pour accompagner vos proches âgés dans l'Hérault" />
+        <meta name="twitter:image" content="https://www.autrementsenior.fr/images/logo.png" />
         
-        <link rel="canonical" href="https://autrementsenior.fr" />
-        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.autrementsenior.fr" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="Autrement Senior" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="Content-Language" content="fr" />
+        
+        {/* Données structurées JSON-LD pour l'organisation */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Autrement Senior",
+              "description": "Service de Care Management innovant pour accompagner vos proches âgés à Montpellier et dans l'Hérault",
+              "url": "https://www.autrementsenior.fr",
+              "logo": "https://www.autrementsenior.fr/images/logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Montpellier",
+                "addressRegion": "Hérault",
+                "addressCountry": "FR"
+              },
+              "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "43.6108",
+                  "longitude": "3.8767"
+                },
+                "geoRadius": "50000"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "12",
+                "bestRating": "5"
+              }
+            })
+          }}
+        />
+        
+        {/* Données structurées pour le service */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Care Management pour personnes âgées",
+              "provider": {
+                "@type": "Organization",
+                "name": "Autrement Senior"
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "Montpellier"
+              },
+              "description": "Coordination médicale, aide à domicile personnalisée et soutien aux aidants familiaux",
+              "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock"
+              }
+            })
+          }}
+        />
       </Head>
 
       <main className="min-h-screen">
@@ -244,7 +310,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section Témoignages */}
+        {/* Section Témoignages avec Schema.org */}
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4">
             <motion.div
@@ -275,25 +341,28 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Grille d'avis */}
+            {/* Grille d'avis avec balisage Review Schema */}
             <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 {
                   author: "Christine RUTKOWSKI.",
                   rating: 5,
                   date: "Il y a 2 mois",
+                  datePublished: "2025-04-29",
                   text: "Je suis en Normandie, ma maman sur Montpellier, nous avons connu la société «Autrement Senior» pour accompagner notre mère et pour nos enfants leur grand mère. Nous sommes tellement satisfaits par cette structure et tous les intervenants"
                 },
                 {
                   author: "christiane.",
                   rating: 5,
                   date: "Il y a 3 mois",
+                  datePublished: "2025-03-29",
                   text: "Une société qui réunit les compétences médicales, psychologiques et administratives avec bienveillance envers les personnes âgées et leur famille.Je remercie tout particulièrement Caroline qui est très à l'écoute et se charge de trouver une solution à chaque situation aussi difficile soit-elle."
                 },
                 {
                   author: "Frédérique Emery.",
                   rating: 5,
                   date: "Il y a 9 mois",
+                  datePublished: "2024-09-29",
                   text: "Le support de Caroline, Autrement Senior, a été précieux pour nous aider à avancer dans une période difficile. Caroline a été très à l'écoute, attentive, et rassurante. Elle a su trouver les bonnes solutions aux problèmes quotidiens que nous rencontrions. "
                 }
               ].map((avis, index) => (
@@ -304,14 +373,22 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+                  itemScope
+                  itemType="https://schema.org/Review"
                 >
+                  {/* Données structurées pour chaque avis */}
+                  <meta itemProp="datePublished" content={avis.datePublished} />
+                  <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Organization">
+                    <meta itemProp="name" content="Autrement Senior" />
+                  </div>
+                  
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold">
                         {avis.author.charAt(0)}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900">{avis.author}</h4>
+                        <h4 className="font-semibold text-gray-900" itemProp="author">{avis.author}</h4>
                         <p className="text-sm text-gray-500">{avis.date}</p>
                       </div>
                     </div>
@@ -323,7 +400,9 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="flex mb-3">
+                  <div className="flex mb-3" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                    <meta itemProp="ratingValue" content={avis.rating.toString()} />
+                    <meta itemProp="bestRating" content="5" />
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -331,7 +410,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed" itemProp="reviewBody">
                     "{avis.text}"
                   </p>
                 </motion.div>
@@ -389,7 +468,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Popup Podcast */}
+        {/* Popup Podcast (reste identique) */}
         <AnimatePresence>
           {showPopup && (
             <>
