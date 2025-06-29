@@ -54,31 +54,65 @@ export default function Home() {
     };
   }, []);
 
-  // Gestion du lecteur audio
+  // Gestion du lecteur audio améliorée
   useEffect(() => {
     const audio = audioRef.current;
-    if (audio) {
-      const updateTime = () => setCurrentTime(audio.currentTime);
-      const updateDuration = () => setDuration(audio.duration);
-      
-      audio.addEventListener('timeupdate', updateTime);
-      audio.addEventListener('loadedmetadata', updateDuration);
-      
-      return () => {
-        audio.removeEventListener('timeupdate', updateTime);
-        audio.removeEventListener('loadedmetadata', updateDuration);
-      };
-    }
+    if (!audio) return;
+
+    // Fonctions de mise à jour
+    const updateTime = () => {
+      setCurrentTime(audio.currentTime);
+    };
+    
+    const updateDuration = () => {
+      if (audio.duration && !isNaN(audio.duration)) {
+        setDuration(audio.duration);
+      }
+    };
+
+    const handleError = (e: Event) => {
+      console.error('Erreur audio:', e);
+    };
+
+    // Ajout des écouteurs d'événements
+    audio.addEventListener('timeupdate', updateTime);
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('durationchange', updateDuration);
+    audio.addEventListener('error', handleError);
+    
+    // Nettoyage
+    return () => {
+      audio.removeEventListener('timeupdate', updateTime);
+      audio.removeEventListener('loadedmetadata', updateDuration);
+      audio.removeEventListener('durationchange', updateDuration);
+      audio.removeEventListener('error', handleError);
+    };
   }, []);
 
-  const togglePlay = () => {
-    if (audioRef.current) {
+  const togglePlay = async () => {
+    if (!audioRef.current) return;
+    
+    try {
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.play();
+        // Attendre que le fichier soit prêt
+        if (audioRef.current.readyState >= 2) {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } else {
+          // Charger le fichier d'abord
+          audioRef.current.load();
+          audioRef.current.addEventListener('canplay', async () => {
+            await audioRef.current.play();
+            setIsPlaying(true);
+          }, { once: true });
+        }
       }
-      setIsPlaying(!isPlaying);
+    } catch (error) {
+      console.error('Erreur lecture:', error);
+      alert('Impossible de lire le podcast. Vérifiez votre connexion.');
     }
   };
 
@@ -107,8 +141,8 @@ export default function Home() {
         <meta property="og:title" content="Autrement Senior - Care Management pour seniors à Montpellier" />
         <meta property="og:description" content="Service de Care Management innovant pour accompagner vos proches âgés. Coordination médicale, aide à domicile et soutien aux aidants dans l'Hérault." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.autrementsenior.fr" />
-        <meta property="og:image" content="https://www.autrementsenior.fr/images/logo.png" />
+        <meta property="og:url" content="https://autrement-senior-git-main-mickael-gastauds-projects.vercel.app/" />
+        <meta property="og:image" content="https://autrement-senior-git-main-mickael-gastauds-projects.vercel.app/images/autrement-senior.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="Autrement Senior" />
         
@@ -116,9 +150,9 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Autrement Senior - Care Management pour seniors à Montpellier" />
         <meta name="twitter:description" content="Solution innovante de Care Management pour accompagner vos proches âgés dans l'Hérault" />
-        <meta name="twitter:image" content="https://www.autrementsenior.fr/images/logo.png" />
+        <meta name="twitter:image" content="https://autrement-senior-git-main-mickael-gastauds-projects.vercel.app/images/autrement-senior.jpg" />
         
-        <link rel="canonical" href="https://www.autrementsenior.fr" />
+        <link rel="canonical" href="https://autrement-senior-git-main-mickael-gastauds-projects.vercel.app/" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="Autrement Senior" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -133,8 +167,8 @@ export default function Home() {
               "@type": "Organization",
               "name": "Autrement Senior",
               "description": "Service de Care Management innovant pour accompagner vos proches âgés à Montpellier et dans l'Hérault",
-              "url": "https://www.autrementsenior.fr",
-              "logo": "https://www.autrementsenior.fr/images/logo.png",
+              "url": "https://autrement-senior-git-main-mickael-gastauds-projects.vercel.app/",
+              "logo": "https://autrement-senior-git-main-mickael-gastauds-projects.vercel.app/images/logo.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Montpellier",
@@ -468,7 +502,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Popup Podcast (reste identique) */}
+        {/* Popup Podcast - Corrigé */}
         <AnimatePresence>
           {showPopup && (
             <>
@@ -507,13 +541,13 @@ export default function Home() {
 
                   {/* Header avec image */}
                   <div className="relative w-full h-64 md:h-80">
-  <Image
-    src="/images/podcast-autrementsenior.jpg"
-    alt="Podcast Autrement Senior"
-    fill
-    priority
-    className="object-cover rounded-t-3xl"
-  />
+                    <Image
+                      src="/images/podcast-autrementsenior.jpg"
+                      alt="Podcast Autrement Senior"
+                      fill
+                      priority
+                      className="object-cover rounded-t-3xl"
+                    />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     
@@ -613,11 +647,25 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Lecteur audio caché */}
+                  {/* Lecteur audio amélioré avec gestion d'erreurs */}
                   <audio
                     ref={audioRef}
                     src="/podcast/Les 5 difficultés que rencontrent le plus souvent les aidants familiaux.mp3"
                     onEnded={() => setIsPlaying(false)}
+                    onError={(e) => {
+                      console.error('Erreur de chargement audio:', e);
+                      alert('Erreur de chargement du podcast. Vérifiez le chemin du fichier.');
+                    }}
+                    onLoadedMetadata={(e) => {
+                      const audio = e.currentTarget;
+                      setDuration(audio.duration);
+                      console.log('Durée du podcast:', audio.duration);
+                    }}
+                    onTimeUpdate={(e) => {
+                      const audio = e.currentTarget;
+                      setCurrentTime(audio.currentTime);
+                    }}
+                    preload="metadata"
                   />
                 </div>
               </motion.div>
